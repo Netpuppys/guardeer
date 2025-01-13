@@ -19,7 +19,8 @@
 
 @font-face {
   font-family: "HelveticaNow";
-  src: url("../public/fonts/HelveticaNowDisplay-ExtraBold.ttf") format("truetype");
+  src: url("../public/fonts/HelveticaNowDisplay-ExtraBold.ttf")
+    format("truetype");
   font-weight: 800;
   font-style: normal;
 }
@@ -145,10 +146,22 @@
   font-style: normal;
 }
 
-
 :root {
   --background: #ffffff;
   --foreground: #171717;
+}
+
+.no-scrollbar {
+  /* For Firefox */
+  scrollbar-width: none;
+
+  /* For Webkit-based browsers (Chrome, Safari, Edge) */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  overflow: -moz-scrollbars-none; /* Legacy Firefox (optional) */
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none; /* For Webkit-based browsers */
 }
 
 @media (prefers-color-scheme: dark) {
@@ -163,3 +176,70 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+/* @property --bg-angle {
+  inherits: false;
+  initial-value: 0deg;
+  syntax: "<angle>";
+}
+@keyframes spin {
+  to {
+    --bg-angle: 360deg;
+  }
+}
+
+.hoverAnimation {
+  animation: spin 2.5s infinite linear paused;
+  background: linear-gradient(
+        to bottom,
+        oklch(0.1 0.2 240 / 0.95),
+        oklch(0.1 0.2 240 / 0.95)
+      )
+      padding-box,
+    conic-gradient(
+        from var(--bg-angle) in oklch longer hue,
+        oklch(0.85 0.37 0) 0 0
+      )
+      border-box;
+  border: 1.5px solid transparent;
+  animation-play-state: running;
+  &:hover {
+    animation-play-state: paused;
+  }
+}
+* {
+  box-sizing: border-box;
+}
+@keyframes rotateBorderL {
+  0% {
+    border-left-color: #04C5D2;
+  }
+  100% {
+    border-left-color: #04C5D2;
+    transform: rotate(360deg);
+  }
+} */
+
+/* Apply the animation when hovering */
+/* button:hover {
+  animation: rotateBorderL 1s ease-in infinite;
+} */
+/* button {
+  background: radial-gradient(
+      circle,
+      oklch(0.15 0.2 330 / 0),
+      oklch(0.15 0.2 330 / 1)
+    ),
+    linear-gradient(
+      344deg in oklch,
+      oklch(0.3 0.37 310),
+      oklch(0.35 0.37 330),
+      oklch(0.3 0.37 310)
+    );
+  display: grid;
+  place-items: center;
+} */
+
+/* .hoverAnimation {
+  color: white;
+  overflow: hidden;
+} */
