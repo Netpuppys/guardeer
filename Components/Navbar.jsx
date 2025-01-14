@@ -41,7 +41,7 @@ const Navbar = () => {
     }, [isSearchBarVisible])
     
   return (
-    <div className='w-[calc(100%-4rem)] h-[4.5rem] z-50 fixed top-8 left-8 right-8 bg-[#1D1E21] rounded-[1.3rem] py-[0.75rem] px-[1.25rem] flex items-center justify-between gap-20'>
+    <div className='w-[calc(100vw-4rem)] h-[4.5rem] z-50 fixed top-8 left-8 right-8 bg-[#1D1E21] rounded-[1.3rem] py-[0.75rem] px-[1.25rem] flex items-center justify-between gap-20'>
         <Link href={"/"} className='h-full w-fit'>
             <Image
                 src={guardeerLogo}
