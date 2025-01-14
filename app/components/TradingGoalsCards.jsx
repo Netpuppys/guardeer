@@ -67,7 +67,7 @@ const cardsArray = [
         ]
     },
     {
-        icon: challenge,
+        icon: capital,
         color: "#E5CD7C",
         title: <>Secure Funded <span className="text-[#E5CD7C] font-semibold text-[2rem]">Capital</span></>,
         points: [

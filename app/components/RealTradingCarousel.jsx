@@ -1,3 +1,4 @@
+import GradientText from '@/Components/ui/GradientText';
 import React from 'react'
 import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
 
@@ -6,9 +7,9 @@ const RealTradingCarousel = () => {
     <div className='w-full mt-36'>
         <p className='text-[4rem] pb-2 leading-[4.5rem] text-center text-[#d9d9d9] font-neuehaas font-bold'>
             Real Trading.{" "}
-            <span className='text-text-light-gray font-ttc from-blue-green-start to-blue-green-end bg-gradient-to-r transition-all inline-block text-transparent bg-clip-text'>
+            <GradientText>
                 Real Talent.
-            </span>{" "}
+            </GradientText>{" "}
             Real Results.
         </p>
         <p className='text-center leading-[1.5rem] text-[#8F8F8F] text-[1.5rem] font-ttc font-medium '>

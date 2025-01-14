@@ -17,6 +17,11 @@ export default {
         foreground: "var(--foreground)",
         "text-light-gray": "#D2D2D2",
       },
+      boxShadow: {
+        "yellow-glow": '0px 3.63px 32.582px 1.815px rgba(229, 205, 124, 0.79)',
+        "yellow-glow-sm": '0px 3.63px 24.686px 3.63px rgba(229, 205, 124, 0.60)',
+        "yellow-glow-inset": '0px 3.63px 32.582px 1.815px rgba(229, 205, 124, 0.79)',
+      },
       gradientColorStops: {
         "blue-green-start": "#E5CD7C",
         "blue-green-end": "#0EC0C8",
