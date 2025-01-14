@@ -1,6 +1,6 @@
 "use client";
 
-import GradientText from "../../components/ui/GradientText";
+import GradientText from "../ui/GradientText";
 import React, { useState } from "react";
 import { GoChevronDown, GoChevronRight } from "react-icons/go";
 

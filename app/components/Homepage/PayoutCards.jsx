@@ -1,15 +1,15 @@
-import GradientText from "../../components/ui/GradientText";
+import GradientText from "../ui/GradientText";
 import React from "react";
-import payoutBanner from "../../public/background/payoutBanner.png";
+import payoutBanner from "../../../public/background/payoutBanner.png";
 import Image from "next/image";
-import clockIcon from "../../public/icons/24Hour.png";
-import trailing from "../../public/icons/trailing.png";
-import news from "../../public/icons/news.png";
+import clockIcon from "../../../public/icons/24Hour.png";
+import trailing from "../../../public/icons/trailing.png";
+import news from "../../../public/icons/news.png";
 import { BsArrowRight } from "react-icons/bs";
-import challenge from "../../public/icons/challenge.png";
-import objectives from "../../public/icons/objectives.png";
-import capital from "../../public/icons/capital.png";
-import placeholder from "../../public/delete/placeholder.png";
+import challenge from "../../../public/icons/challenge.png";
+import objectives from "../../../public/icons/objectives.png";
+import capital from "../../../public/icons/capital.png";
+import placeholder from "../../../public/delete/placeholder.png";
 
 const cards = [
   {

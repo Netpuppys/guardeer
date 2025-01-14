@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useEffect, useRef, useState } from 'react'
-import guardeerLogo from "../public/logos/guardeerLogo.png"
+import guardeerLogo from "../../public/logos/guardeerLogo.png"
 import Link from 'next/link'
 import Image from 'next/image'
 import { IoClose, IoSearchOutline } from "react-icons/io5";

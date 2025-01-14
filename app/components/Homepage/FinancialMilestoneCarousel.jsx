@@ -1,7 +1,7 @@
-import GradientText from "../../components/ui/GradientText";
+import GradientText from "../ui/GradientText";
 import React from "react";
 import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
-import payout from "../../public/delete/payout.png";
+import payout from "../../../public/delete/payout.png";
 import Image from "next/image";
 
 const FinancialMilestoneCarousel = () => {

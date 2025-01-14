@@ -1,10 +1,10 @@
-import backgroundImage from "../../public/background/backgroundImage.png";
+import backgroundImage from "../../../public/background/backgroundImage.png";
 import { BsArrowRight } from "react-icons/bs";
 import Image from "next/image";
-import dailyPayouts from "../../public/icons/dailyPayouts.png";
-import profitSplit from "../../public/icons/profitSplit.png";
-import fundedTraders from "../../public/icons/fundedTraders.png"
-import payoutCardBackground from "../../public/background/payoutCardBackground.jpeg"
+import dailyPayouts from "../../../public/icons/dailyPayouts.png";
+import profitSplit from "../../../public/icons/profitSplit.png";
+import fundedTraders from "../../../public/icons/fundedTraders.png"
+import payoutCardBackground from "../../../public/background/payoutCardBackground.jpeg"
 
 const Card = ({  }) => {
 

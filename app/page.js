@@ -1,11 +1,11 @@
-import Navbar from "../components/Navbar";
-import Banner from "./components/Banner";
-import TradingGoalsCards from "./components/TradingGoalsCards";
-import RealTradingCarousel from "./components/RealTradingCarousel";
-import ChooseYourChallenge from "./components/ChooseYourChallenge";
-import PayoutCards from "./components/PayoutCards";
-import FinancialMilestoneCarousel from "./components/FinancialMilestoneCarousel";
-import FaqSection from "./components/FaqSection";
+import Navbar from "./components/Navbar";
+import Banner from "./components/Homepage/Banner";
+import TradingGoalsCards from "./components/Homepage/TradingGoalsCards";
+import RealTradingCarousel from "./components/Homepage/RealTradingCarousel";
+import ChooseYourChallenge from "./components/Homepage/ChooseYourChallenge";
+import PayoutCards from "./components/Homepage/PayoutCards";
+import FinancialMilestoneCarousel from "./components/Homepage/FinancialMilestoneCarousel";
+import FaqSection from "./components/Homepage/FaqSection";
 
 export default function Home() {
   return (

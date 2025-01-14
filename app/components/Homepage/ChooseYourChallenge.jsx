@@ -1,13 +1,13 @@
 "use client";
 
-import GradientText from "../../components/ui/GradientText";
+import GradientText from "../ui/GradientText";
 import React, { useState } from "react";
-import bigLogo from "../../public/logos/bigLogo.png";
+import bigLogo from "../../../public/logos/bigLogo.png";
 import Image from "next/image";
 import { GoArrowUpRight } from "react-icons/go";
-import knight from "../../public/icons/knight.png"
-import royal from "../../public/icons/royal.png"
-import emperor from "../../public/icons/emperor.png"
+import knight from "../../../public/icons/knight.png";
+import royal from "../../../public/icons/royal.png";
+import emperor from "../../../public/icons/emperor.png";
 
 const challenges = [
   {
@@ -28,19 +28,19 @@ const challenges = [
 ];
 
 const nameChallenges = [
-    {
-        icon: knight,
-        name: "Knight Challenge"
-    },
-    {
-        icon: royal,
-        name: "Royal Challenge"
-    },
-    {
-        icon: emperor,
-        name: "Emperor Challenge"
-    },
-]
+  {
+    icon: knight,
+    name: "Knight Challenge",
+  },
+  {
+    icon: royal,
+    name: "Royal Challenge",
+  },
+  {
+    icon: emperor,
+    name: "Emperor Challenge",
+  },
+];
 
 const tableData = [
   {
@@ -95,7 +95,6 @@ const ChooseYourChallenge = () => {
 
   return (
     <div className="w-full px-28 pt-[9rem]">
-
       <p className="text-center leading-[4.5rem] font-neuehaas text-[4rem] font-bold  text-[#d9d9d9] ">
         Choose Your <GradientText>Challenge.</GradientText>
       </p>
@@ -105,25 +104,25 @@ const ChooseYourChallenge = () => {
 
       <div className="w-full min-h-screen h-fit bg-yellow-blue-gradient rounded-[3rem] mt-24 p-[1.8px]">
         <div className="w-full h-full bg-black rounded-[3rem] pt-[9rem] flex flex-col items-center justify-start relative">
-
-        <div className="absolute top-0 -translate-y-1/2 left-0 w-full bg-transparent h-[8.2rem] px-[8rem] flex items-center justify-center gap-[3.6rem]">
+          <div className="absolute top-0 -translate-y-1/2 left-0 w-full bg-transparent h-[8.2rem] px-[8rem] flex items-center justify-center gap-[3.6rem]">
             {nameChallenges.map((item, index) => (
-            <div 
+              <div
                 key={index}
                 className="h-full bg-[#111111] w-80 border border-[#0EC0C8] even:border-[#FBF93A] rounded-2xl flex flex-col items-center justify-center gap-2"
-            >
+              >
                 <Image
-                    src={item.icon}
-                    className="h-[3.6rem] w-[3.6rem]"
-                    alt=""
+                  src={item.icon}
+                  className="h-[3.6rem] w-[3.6rem]"
+                  alt=""
                 />
                 <p className="font-neuehaas text-white text-[1.6rem]">
-                    {item.name}
+                  {item.name}
                 </p>
-            </div>))}
-        </div>
+              </div>
+            ))}
+          </div>
 
-        <div className="w-full h-fit px-10">
+          <div className="w-full h-fit px-10">
             <div className="flex items-center justify-center gap-[1.8rem]">
               {challenges.map((item, id) => (
                 <button
