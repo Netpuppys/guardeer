@@ -1,4 +1,4 @@
-import GradientText from "@/components/ui/GradientText";
+import GradientText from "../../components/ui/GradientText";
 import React from "react";
 import payoutBanner from "../../public/background/payoutBanner.png";
 import Image from "next/image";

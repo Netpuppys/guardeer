@@ -1,4 +1,4 @@
-import Navbar from "@/components/Navbar";
+import Navbar from "../components/Navbar";
 import Banner from "./components/Banner";
 import TradingGoalsCards from "./components/TradingGoalsCards";
 import RealTradingCarousel from "./components/RealTradingCarousel";

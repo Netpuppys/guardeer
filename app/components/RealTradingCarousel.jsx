@@ -1,4 +1,4 @@
-import GradientText from "@/components/ui/GradientText";
+import GradientText from "../../components/ui/GradientText";
 import React from "react";
 import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
 
