@@ -59,14 +59,14 @@ const cards = [
   {
     title: (
       <>
-        Fast <span className="text-[#04C5D2]">Bi-Weekly</span> Payouts
+        Streamlined <span className="text-[#04C5D2]">Scaling</span> Plan
       </>
     ),
     icon: objectives,
     description: [
-      "Receive Profits Every Two Weeks.",
-      "Maintain A Smooth Cash Flow.",
-      "Reinvest Earnings Or Access Your Rewards Faster.",
+      "Unlock increased trading capital after a 10% profit.",
+      "Benefit from a clear and achievable scaling system.",
+      "Reward consistent performance with greater financial opportunities.",
     ],
     color: "#04C5D2",
   },
