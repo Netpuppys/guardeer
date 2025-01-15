@@ -6,6 +6,8 @@ import clockIcon from "../../../public/icons/24Hour.png"
 import dailyPayouts from "../../../public/icons/dailyPayouts.png"
 import fundedTraders from "../../../public/icons/fundedTraders.png"
 import news from "../../../public/icons/news.png"
+import firstTrade from "../../../public/icons/firstTrade.png"
+import booked from "../../../public/icons/booked.png"
 import profitSplit from "../../../public/icons/profitSplit.png"
 import trailing from "../../../public/icons/trailing.png"
 import challenge from "../../../public/icons/challenge.png"
@@ -40,11 +42,11 @@ const pointsArray = [
         text: "News & weekend Holding"
     },
     {
-        icon: fundedTraders,
+        icon: firstTrade,
         text: "Payouts From Your First Trade"
     },
     {
-        icon: news,
+        icon: booked,
         text: "A-Booked Funded Traders"
     },
 ]

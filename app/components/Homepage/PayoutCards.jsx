@@ -6,10 +6,19 @@ import clockIcon from "../../../public/icons/24Hour.png";
 import trailing from "../../../public/icons/trailing.png";
 import news from "../../../public/icons/news.png";
 import { BsArrowRight } from "react-icons/bs";
+import profitSplit from "../../../public/icons/profitSplit2.png";
+import objectives from "../../../public/icons/objectives2.png";
+import scaling from "../../../public/icons/scaling.png";
 import challenge from "../../../public/icons/challenge.png";
-import objectives from "../../../public/icons/objectives.png";
+import biWeekly from "../../../public/icons/biWeekly.png";
 import capital from "../../../public/icons/capital.png";
 import placeholder from "../../../public/delete/placeholder.png";
+import countPayouts from "../../../public/icons/countPayouts.png"
+import instantPayouts from "../../../public/icons/instantPayouts.png"
+import marketSwings from "../../../public/icons/marketSwings.png"
+import tradingPlatform from "../../../public/icons/tradingPlatform.png"
+import marketAccess from "../../../public/icons/marketAccess.png"
+import bestExecution from "../../../public/icons/bestExecution.png"
 import { motion } from "motion/react"
 import { useInView } from "react-intersection-observer";
 
@@ -20,7 +29,7 @@ const cards = [
         Up to 90% <span className="text-[#E5CD7C]">Profit Split</span>
       </>
     ),
-    icon: challenge,
+    icon: profitSplit,
     description: [
       "Earn Up To 90% Of Your Profits With Our Flexible Structure.",
       "Utilize Add-Ons To Maximize Your Earnings Potential.",
@@ -34,7 +43,7 @@ const cards = [
         Fast <span className="text-[#04C5D2]">Bi-Weekly</span> Payouts
       </>
     ),
-    icon: objectives,
+    icon: biWeekly,
     description: [
       "Receive Profits Every Two Weeks.",
       "Maintain A Smooth Cash Flow.",
@@ -48,7 +57,7 @@ const cards = [
         Realistic Profit <span className="text-[#e5cd7c]">Objectives</span>
       </>
     ),
-    icon: capital,
+    icon: objectives,
     description: [
       "Achieve Profit Targets That Are Fair And Attainable.",
       "Focus On Consistent, Sustainable Growth.",
@@ -62,7 +71,7 @@ const cards = [
         Streamlined <span className="text-[#04C5D2]">Scaling</span> Plan
       </>
     ),
-    icon: objectives,
+    icon: scaling,
     description: [
       "Unlock increased trading capital after a 10% profit.",
       "Benefit from a clear and achievable scaling system.",
@@ -74,7 +83,7 @@ const cards = [
 
 const cardsArray = [
   {
-      icon: challenge,
+      icon: tradingPlatform,
       color: "#E5CD7C",
       title: <>Choose Your <span className="text-[#E5CD7C] font-semibold text-[2rem]">Challenge</span></>,
       points: [
@@ -84,7 +93,7 @@ const cardsArray = [
       ]
   },
   {
-      icon: objectives,
+      icon: marketAccess,
       color: "#0EC0C8",
       title: <>Conquer Your <span className="text-[#0EC0C8] font-semibold text-[2rem]">Objectives</span></>,
       points: [
@@ -94,7 +103,7 @@ const cardsArray = [
       ]
   },
   {
-      icon: capital,
+      icon: bestExecution,
       color: "#E5CD7C",
       title: <>Secure Funded <span className="text-[#E5CD7C] font-semibold text-[2rem]">Capital</span></>,
       points: [
@@ -157,19 +166,19 @@ const TopBanner = () => {
               <p className="font-ttc text-[1.7rem] tracking-[0.03444rem] text-right text-white ">
                 Instant Payouts At Your Convenience
               </p>
-              <Image src={clockIcon} className="h-10 w-10" alt="" />
+              <Image src={instantPayouts} className="h-10 w-10" alt="" />
             </div>
             <div className="flex items-center gap-10">
               <p className="font-ttc text-[1.7rem] tracking-[0.03444rem] text-right text-white ">
                 Payouts You Can Always Count On
               </p>
-              <Image src={trailing} className="h-10 w-10" alt="" />
+              <Image src={countPayouts} className="h-10 w-10" alt="" />
             </div>
             <div className="flex items-center gap-10">
               <p className="font-ttc text-[1.7rem] tracking-[0.03444rem] text-right text-white ">
                 Protected From Unpredictable Market Swings
               </p>
-              <Image src={news} className="h-10 w-10" alt="" />
+              <Image src={marketSwings} className="h-10 w-10" alt="" />
             </div>
           </div>
         </div>

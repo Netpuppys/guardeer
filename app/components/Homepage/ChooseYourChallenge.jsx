@@ -6,7 +6,7 @@ import bigLogo from "../../../public/logos/bigLogo.png";
 import Image from "next/image";
 import { GoArrowUpRight } from "react-icons/go";
 import knight from "../../../public/icons/knight.png";
-import royal from "../../../public/icons/royal.png";
+import royal from "../../../public/icons/royalGradient.png";
 import emperor from "../../../public/icons/emperor.png";
 import knightBg from "../../../public/background/knightBg.png"
 import royalBg from "../../../public/background/royalBg.png"
@@ -41,7 +41,7 @@ const nameChallenges = [
   {
     icon: royal,
     background: royalBg,
-    name: "Royal Challenge",
+    name: <GradientText>Royal Challenge</GradientText>,
   },
   {
     icon: emperor,
