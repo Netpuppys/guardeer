@@ -199,7 +199,7 @@ const AnimatedCards = () => {
           <div
             key={id}
             style={{ border: `1px solid ${item.color}` }}
-            className={`w-[calc(25%-3rem)] h-[24rem] flex flex-col p-6 items-center justify-start gap-4 bg-[#313131] bg-opacity-70 rounded-2xl backdrop-blur-lg shadow-[0px_1.491px_10.597px_0px_rgba(255,252,0,0.80)_inset] even:shadow-[0px_1.491px_10.597px_0px_#0EC0C8_inset]`}
+            className={`w-[calc(25%-3rem)] h-[26rem] flex flex-col p-6 items-center justify-start gap-4 bg-[#313131] bg-opacity-70 rounded-2xl backdrop-blur-lg shadow-[0px_1.491px_10.597px_0px_rgba(255,252,0,0.80)_inset] even:shadow-[0px_1.491px_10.597px_0px_#0EC0C8_inset]`}
           >
             <Image src={item.icon} className="h-[3.5rem] w-[3.5rem]" alt="" />
             <p className=" text-[1.5rem] font-neuehaas">
@@ -222,7 +222,7 @@ const AnimatedCards = () => {
               {item.description.map((point, id) => (
                 <li
                   key={id}
-                  className="text-[1.3rem] text-[#ededed] leading-[1.9rem] font-neuehaas font-normal"
+                  className="text-[clamp(10px,1vw,20px)] text-[#ededed] leading-[1.9rem] font-neuehaas font-normal"
                 >
                   {point}
                 </li>

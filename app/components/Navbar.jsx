@@ -5,6 +5,7 @@ import guardeerLogo from "../../public/logos/guardeerLogo.png";
 import Link from "next/link";
 import Image from "next/image";
 import { IoClose, IoSearchOutline } from "react-icons/io5";
+import { motion } from "motion/react"
 
 const navItems = [
   {
@@ -45,8 +46,15 @@ const Navbar = () => {
 //   };
 
   return (
-    <div
-        className="w-[calc(100vw-4rem)] h-[4.5rem] z-50 fixed top-8 left-8 right-8 bg-[#1D1E21] rounded-[1.3rem] py-[0.75rem] px-[1.25rem] flex items-center justify-between gap-20"
+    <motion.div
+      initial={{ transform: "translateY(-60px)", opacity: 0 }}
+      animate={{ transform: "translateY(0px)", opacity: 1 }}
+      transition={{
+          type: "spring", // Spring effect for smooth animation
+          stiffness: 100, // Adjust the stiffness of the spring (higher is snappier)
+          damping: 10, // Controls how the spring settles (lower is more oscillatory)
+      }}
+      className="w-[calc(100vw-4rem)] h-[4.5rem] z-50 fixed top-8 left-8 right-8 bg-[#1D1E21] rounded-[1.3rem] py-[0.75rem] px-[1.25rem] flex items-center justify-between gap-20"
     >
       <Link href={"/"} className="h-full w-fit">
         <Image src={guardeerLogo} className="h-full w-fit" alt="Guardeer" />
@@ -100,7 +108,7 @@ const Navbar = () => {
             </p>
         </button>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

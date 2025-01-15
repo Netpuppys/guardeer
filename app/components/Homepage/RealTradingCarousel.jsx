@@ -5,11 +5,42 @@ import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules"; // Updated import for modules
 import { useInView } from "react-intersection-observer";
+import { motion } from "motion/react"
+
+const Heading = () => {
+  const { ref, inView } = useInView({
+    threshold: 0.2,
+    triggerOnce: false, // Animation triggers only once
+  });
+
+  return (
+  <motion.div 
+    ref={ref}
+    initial={{ transform: "translateY(60px)", opacity: 0 }}
+    animate={inView ? { transform: "translateY(0px)", opacity: 1 } : {}}
+    transition={{
+        type: "spring", // Spring effect for smooth animation
+        stiffness: 100, // Adjust the stiffness of the spring (higher is snappier)
+        damping: 10, // Controls how the spring settles (lower is more oscillatory)
+    }}
+    className="w-full"
+  >
+    <p className="text-[4rem] pb-2 leading-[4.5rem] text-center text-[#d9d9d9] font-neuehaas font-bold">
+      Real Trading. <GradientText>Real Talent.</GradientText> Real Results.
+    </p>
+    <p className="text-center leading-[1.5rem] text-[#8F8F8F] text-[1.5rem] font-ttc font-medium ">
+      The Proof Is in the Profits
+    </p>
+  </motion.div>
+  )
+}
+
 const RealTradingCarousel = () => {
   const { ref, inView } = useInView({
     threshold: 0.2,
     triggerOnce: false, // Animation triggers only once
   });
+
   const card = [
     { title: "" },
     { title: "" },
@@ -46,12 +77,8 @@ const RealTradingCarousel = () => {
   }, []);
   return (
     <div className="w-full mt-36">
-      <p className="text-[4rem] pb-2 leading-[4.5rem] text-center text-[#d9d9d9] font-neuehaas font-bold">
-        Real Trading. <GradientText>Real Talent.</GradientText> Real Results.
-      </p>
-      <p className="text-center leading-[1.5rem] text-[#8F8F8F] text-[1.5rem] font-ttc font-medium ">
-        The Proof Is in the Profits
-      </p>
+      <Heading />
+      
       <div className="flex items-center justify-end gap-8 px-8">
         <button className="text-[2.5rem] text-[#6B6B6B] hover:text-white">
           <BsChevronLeft />
@@ -60,8 +87,15 @@ const RealTradingCarousel = () => {
           <BsChevronRight />
         </button>
       </div>
-      <div
+      <motion.div
         ref={ref}
+        initial={{ transform: "translateY(60px)", opacity: 0 }}
+        animate={inView ? { transform: "translateY(0px)", opacity: 1 } : {}}
+        transition={{
+            type: "spring", // Spring effect for smooth animation
+            stiffness: 100, // Adjust the stiffness of the spring (higher is snappier)
+            damping: 10, // Controls how the spring settles (lower is more oscillatory)
+        }} 
         className="w-full mt-10 flex items-center justify-center gap-[1.8rem] h-full"
       >
         <Swiper
@@ -95,7 +129,7 @@ const RealTradingCarousel = () => {
             </SwiperSlide>
           ))}
         </Swiper>
-      </div>
+      </motion.div>
     </div>
   );
 };

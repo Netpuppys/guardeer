@@ -10,10 +10,6 @@ import PayoutCards from "./components/Homepage/PayoutCards";
 import FinancialMilestoneCarousel from "./components/Homepage/FinancialMilestoneCarousel";
 import FaqSection from "./components/Homepage/FaqSection";
 import DiscordSection from "./components/Homepage/DiscordSection";
-import footerImage from "../public/delete/footer.png"
-import Image from "next/image";
-import GradientText from "./components/ui/GradientText";
-import { IoChevronForward } from "react-icons/io5";
 import AboutSection from "./components/Homepage/AboutSection";
 import Footer from "./components/Footer";
 

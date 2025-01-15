@@ -7,6 +7,7 @@ import { IoChevronForward } from 'react-icons/io5';
 
 const AboutSection = () => {
   const { ref, inView } = useInView({
+    threshold: 0.2,
     triggerOnce: false, // Animation triggers only once
   });
 
@@ -21,7 +22,7 @@ const AboutSection = () => {
           stiffness: 100, // Adjust the stiffness of the spring (higher is snappier)
           damping: 10, // Controls how the spring settles (lower is more oscillatory)
       }}
-      className="w-full flex flex-col items-center justify-center px-60 py-20"
+      className="w-full flex flex-col items-center justify-center px-60 py-20 mt-10"
     >
       <p className="font-neuehaas text-[4rem] leading-[4.3rem] font-bold text-center">
         <GradientText>About</GradientText>{" "}
