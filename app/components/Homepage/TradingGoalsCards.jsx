@@ -1,3 +1,5 @@
+'use client'
+
 import Image from "next/image"
 import tradingGoalsBackground from "../../../public/background/tradingGoalsBackground.png"
 import clockIcon from "../../../public/icons/24Hour.png"
@@ -9,6 +11,8 @@ import trailing from "../../../public/icons/trailing.png"
 import challenge from "../../../public/icons/challenge.png"
 import objectives from "../../../public/icons/objectives.png"
 import capital from "../../../public/icons/capital.png"
+import { motion } from "motion/react"
+import { useInView } from "react-intersection-observer";
 
 const pointsArray = [
     {
@@ -54,7 +58,8 @@ const cardsArray = [
             "Pick from 1-step, 2-step, or 3-step challenge accounts.",
             "Match the challenge to your risk tolerance and trading style.",
             "Select a capital size that aligns with your trading goals."
-        ]
+        ],
+        delay: 0.4,
     },
     {
         icon: objectives,
@@ -64,7 +69,8 @@ const cardsArray = [
             "Meet clear objectives within a set timeframe.",
             "Refine your trading strategies.",
             "Prove your skills and dominate the market."
-        ]
+        ],
+        delay: 0.3,
     },
     {
         icon: capital,
@@ -74,14 +80,112 @@ const cardsArray = [
             "Gain access to a substantial pool of funded capital.",
             "Turn virtual successes into real-world profits.",
             "Experience the excitement of trading with real stakes."
-        ]
+        ],
+        delay: 0.4,
     },
 ]
 
+const Cards = ({ item, index }) => {
+    const { ref, inView } = useInView({
+        threshold: 0.2,
+        triggerOnce: false, // Animation triggers only once
+    });
+
+    return (
+        <motion.div 
+            ref={ref}
+            initial={{ transform: "translateY(40px)", opacity: 0 }}
+            animate={inView ? { transform: "translateY(0px)", opacity: 1 } : {}}
+            transition={{
+                delay: item.delay,
+                type: "spring", // Spring effect for smooth animation
+                stiffness: 100, // Adjust the stiffness of the spring (higher is snappier)
+                damping: 10, // Controls how the spring settles (lower is more oscillatory)
+            }}
+            className={`w-full h-full flex flex-col p-8 items-center justify-start gap-4 bg-[#313131] bg-opacity-70 rounded-2xl backdrop-blur-lg
+                ${index % 2 === 0? "shadow-[0px_1.491px_10.597px_0px_rgba(255,252,0,0.80)_inset]" : "shadow-[0px_1.491px_10.597px_0px_#0EC0C8_inset]"}
+            `}
+            >
+            <Image
+                src={item.icon}
+                className="h-[4.5rem] w-[4.5rem]"
+                alt=""
+            />
+            <p className=" text-[2rem] font-neuehaas">
+                {item.title}
+            </p>
+            <div style={{ background: item.color }} className={`w-full h-[1.5px] relative`}>
+                <div style={{ background: item.color }} className="absolute w-3 aspect-square rounded-full top-0 left-0 -translate-y-1/2"></div>
+                <div style={{ background: item.color }} className="absolute w-3 aspect-square rounded-full top-0 right-0 -translate-y-1/2"></div>
+            </div>
+            <ul className="list-disc w-full text-left pt-4 px-6">
+                {item.points.map((point, id) => (
+                    <li
+                        key={id}
+                        className="text-[1.4rem] text-[#ededed] leading-[1.9rem] font-neuehaas font-normal"
+                    >
+                        {point}
+                    </li>
+                ))}
+            </ul>
+        </motion.div>
+    )
+}
+
+const BottomBar = () => {
+    const { ref, inView } = useInView({
+        threshold: 0.2,
+        triggerOnce: false, // Animation triggers only once
+    });
+
+    return (
+        <motion.div 
+            ref={ref}
+            initial={{ transform: "translateY(60px)", opacity: 0 }}
+            animate={inView ? { transform: "translateY(0px)", opacity: 1 } : {}}
+            transition={{
+                type: "spring", // Spring effect for smooth animation
+                stiffness: 100, // Adjust the stiffness of the spring (higher is snappier)
+                damping: 10, // Controls how the spring settles (lower is more oscillatory)
+            }}
+            className="mt-12 border border-white rounded-2xl w-full py-8 px-20 flex items-center justify-between"
+        >
+            <div className="">
+                <p className="text-[#0EC0C8] text-[2.4rem] font-bold font-helvetica">
+                    Ready to Make Winning Trades?
+                </p>
+                <p className="text-[#8F8F8F] text-[1.5rem] font-medium font-ttc">
+                    Compare Challenges and Account Sizes to Amplify Your Strategy
+                </p>
+            </div>
+            <button
+                className="bg-yellow-blue-gradient font-ttc font-semibold w-[16rem] h-14 rounded-full flex items-center justify-center text-black text-xl "
+            >
+                Click to Compare
+            </button>
+        </motion.div>
+    )
+}
+
 const TradingGoalsCards = () => {
+    const { ref, inView } = useInView({
+        threshold: 0.2,
+        triggerOnce: false, // Animation triggers only once
+    });
+
   return (
     <div className="w-full mt-40">
-        <div className="relative w-full rounded-[2rem] flex items-end justify-end bg-[#1D1E21]">
+        <motion.div 
+            ref={ref}
+            initial={{ transform: "translateY(60px)", opacity: 0 }}
+            animate={inView ? { transform: "translateY(0px)", opacity: 1 } : {}}
+            transition={{
+                type: "spring", // Spring effect for smooth animation
+                stiffness: 100, // Adjust the stiffness of the spring (higher is snappier)
+                damping: 10, // Controls how the spring settles (lower is more oscillatory)
+            }}
+            className="relative w-full rounded-[2rem] flex items-end justify-end bg-[#1D1E21]"
+        >
             <Image
                 src={tradingGoalsBackground}
                 className="w-[45%] h-fit absolute bottom-0 left-0"
@@ -113,55 +217,17 @@ const TradingGoalsCards = () => {
                     ))}
                 </div>
             </div>
-        </div>
+        </motion.div>
 
         <div className="flex h-[27rem] items-center mt-10 justify-center gap-24">
             {cardsArray.map((item, index) => (
-                <div 
-                    key={index}
-                    className="w-[calc(33%-4rem)] shadow-[0px_1.491px_10.597px_0px_rgba(255,252,0,0.80)_inset] even:shadow-[0px_1.491px_10.597px_0px_#0EC0C8_inset] h-full flex flex-col p-8 items-center justify-start gap-4 bg-[#313131] bg-opacity-70 rounded-2xl backdrop-blur-lg"
-                >
-                    <Image
-                        src={item.icon}
-                        className="h-[4.5rem] w-[4.5rem]"
-                        alt=""
-                    />
-                    <p className=" text-[2rem] font-neuehaas">
-                      {item.title}
-                    </p>
-                    <div style={{ background: item.color }} className={`w-full h-[1.5px] relative`}>
-                        <div style={{ background: item.color }} className="absolute w-3 aspect-square rounded-full top-0 left-0 -translate-y-1/2"></div>
-                        <div style={{ background: item.color }} className="absolute w-3 aspect-square rounded-full top-0 right-0 -translate-y-1/2"></div>
-                    </div>
-                    <ul className="list-disc w-full text-left pt-4 px-6">
-                        {item.points.map((point, id) => (
-                            <li
-                                key={id}
-                                className="text-[1.4rem] text-[#ededed] leading-[1.9rem] font-neuehaas font-normal"
-                            >
-                                {point}
-                            </li>
-                        ))}
-                    </ul>
+                <div key={index} className="w-[calc(33%-4rem)] h-full">
+                    <Cards item={item} index={index} />
                 </div>
             ))}
         </div>
 
-        <div className="mt-12 border border-white rounded-2xl w-full py-8 px-20 flex items-center justify-between">
-            <div className="">
-                <p className="text-[#0EC0C8] text-[2.4rem] font-bold font-helvetica">
-                    Ready to Make Winning Trades?
-                </p>
-                <p className="text-[#8F8F8F] text-[1.5rem] font-medium font-ttc">
-                    Compare Challenges and Account Sizes to Amplify Your Strategy
-                </p>
-            </div>
-            <button
-                className="bg-yellow-blue-gradient font-ttc font-semibold w-[16rem] h-14 rounded-full flex items-center justify-center text-black text-xl "
-            >
-                Click to Compare
-            </button>
-        </div>
+        <BottomBar />
     </div>
   )
 }

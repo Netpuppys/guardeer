@@ -1,6 +1,6 @@
 import GradientText from "../ui/GradientText";
 import React from "react";
-import payoutBanner from "../../../public/background/payoutBanner.png";
+import payoutBanner from "../../../public/background/payoutBanner2.png";
 import Image from "next/image";
 import clockIcon from "../../../public/icons/24Hour.png";
 import trailing from "../../../public/icons/trailing.png";
@@ -10,6 +10,8 @@ import challenge from "../../../public/icons/challenge.png";
 import objectives from "../../../public/icons/objectives.png";
 import capital from "../../../public/icons/capital.png";
 import placeholder from "../../../public/delete/placeholder.png";
+import { motion } from "motion/react"
+import { useInView } from "react-intersection-observer";
 
 const cards = [
   {
@@ -103,10 +105,24 @@ const cardsArray = [
   },
 ]
 
-const PayoutCards = () => {
+const TopBanner = () => {
+  const { ref, inView } = useInView({
+    threshold: 0.2,
+    triggerOnce: false, // Animation triggers only once
+  });
+
   return (
-    <div className="w-full mt-[9rem]">
-      <div className="px-12 py-14 rounded-[2.2rem] overflow-hidden bg-[#1D1E21] relative">
+    <motion.div 
+      ref={ref}
+      initial={{ transform: "translateY(40px)", opacity: 0 }}
+      animate={inView ? { transform: "translateY(0px)", opacity: 1 } : {}}
+      transition={{
+          type: "spring", // Spring effect for smooth animation
+          stiffness: 100, // Adjust the stiffness of the spring (higher is snappier)
+          damping: 10, // Controls how the spring settles (lower is more oscillatory)
+      }}
+      className="px-12 py-14 rounded-[2.2rem] overflow-hidden bg-[#1D1E21] relative"
+    >
         <Image
           src={payoutBanner}
           className="absolute top-0 left-0 w-full h-full object-cover z-0"
@@ -157,9 +173,28 @@ const PayoutCards = () => {
             </div>
           </div>
         </div>
-      </div>
+    </motion.div>
+  )
+}
 
-      <div className="w-full flex items-center justify-center gap-16 mt-14">
+const AnimatedCards = () => {
+  const { ref, inView } = useInView({
+    threshold: 0.2,
+    triggerOnce: false, // Animation triggers only once
+  });
+
+  return (
+    <motion.div 
+      ref={ref}
+      initial={{ transform: "translateY(40px)", opacity: 0 }}
+      animate={inView ? { transform: "translateY(0px)", opacity: 1 } : {}}
+      transition={{
+          type: "spring", // Spring effect for smooth animation
+          stiffness: 100, // Adjust the stiffness of the spring (higher is snappier)
+          damping: 10, // Controls how the spring settles (lower is more oscillatory)
+      }}
+      className="w-full flex items-center justify-center gap-16 mt-14"
+    >
         {cards.map((item, id) => (
           <div
             key={id}
@@ -195,14 +230,52 @@ const PayoutCards = () => {
             </ul>
           </div>
         ))}
-      </div>
+    </motion.div>
+  )
+}
 
-      <div className="w-full px-40 h-fit py-[12rem]">
+const AnimatedImage = () => {
+  const { ref, inView } = useInView({
+    threshold: 0.3,
+    triggerOnce: false, // Animation triggers only once
+  });
+
+  return (
+    <motion.div 
+      ref={ref}
+      initial={{ transform: "translateY(100px)", opacity: 0 }}
+      animate={inView ? { transform: "translateY(0px)", opacity: 1 } : {}}
+      transition={{
+          type: "spring", // Spring effect for smooth animation
+          stiffness: 100, // Adjust the stiffness of the spring (higher is snappier)
+          damping: 10, // Controls how the spring settles (lower is more oscillatory)
+      }}
+      className="w-full px-40 h-fit py-[12rem]"
+    >
         <Image src={placeholder} className="w-full h-fit" alt="" />
-      </div>
+    </motion.div>
+  )
+}
 
-      <div className="w-full flex flex-col items-center justify-start">
-        <p className="font-helvetica text-[#d9d9d9] text-[3.5rem] font-bold text-center">
+const AnimatedHeading = () => {
+  const { ref, inView } = useInView({
+    threshold: 0.3,
+    triggerOnce: false, // Animation triggers only once
+  });
+
+  return (
+    <motion.div 
+      ref={ref}
+      initial={{ transform: "translateY(100px)", opacity: 0 }}
+      animate={inView ? { transform: "translateY(0px)", opacity: 1 } : {}}
+      transition={{
+          type: "spring", // Spring effect for smooth animation
+          stiffness: 100, // Adjust the stiffness of the spring (higher is snappier)
+          damping: 10, // Controls how the spring settles (lower is more oscillatory)
+      }}
+      className="w-full flex flex-col items-center justify-start"
+    >
+      <p className="font-helvetica text-[#d9d9d9] text-[3.5rem] font-bold text-center">
           Trade with Confidence,{" "}
           <GradientText>Succeed with Precision</GradientText>
         </p>
@@ -215,37 +288,71 @@ const PayoutCards = () => {
           Our selected trading platforms give you a high-performance trading
           experience with:
         </p>
-        <div className="flex h-[28rem] items-center mt-10 justify-center gap-24">
-        {cardsArray.map((item, index) => (
-                <div 
-                    key={index}
-                    className="w-[calc(33%-4rem)] shadow-[0px_1.491px_10.597px_0px_rgba(255,252,0,0.80)_inset] even:shadow-[0px_1.491px_10.597px_0px_#0EC0C8_inset] h-full flex flex-col p-8 items-center justify-start gap-4 bg-[#313131] bg-opacity-70 rounded-2xl backdrop-blur-lg"
-                >
-                    <Image
-                        src={item.icon}
-                        className="h-[4.5rem] w-[4.5rem]"
-                        alt=""
-                    />
-                    <p className=" text-[2rem] font-neuehaas">
-                      {item.title}
-                    </p>
-                    <div style={{ background: item.color }} className={`w-full h-[1.5px] relative`}>
-                        <div style={{ background: item.color }} className="absolute w-3 aspect-square rounded-full top-0 left-0 -translate-y-1/2"></div>
-                        <div style={{ background: item.color }} className="absolute w-3 aspect-square rounded-full top-0 right-0 -translate-y-1/2"></div>
-                    </div>
-                    <ul className="list-disc w-full text-left pt-4 px-6">
-                        {item.points.map((point, id) => (
-                            <li
-                                key={id}
-                                className="text-[1.4rem] text-[#ededed] leading-[1.9rem] font-neuehaas font-normal"
-                            >
-                                {point}
-                            </li>
-                        ))}
-                    </ul>
-                </div>
-            ))}
-        </div>
+    </motion.div>
+  )
+}
+
+const AnimatedBottomCards = () => {
+  const { ref, inView } = useInView({
+    threshold: 0.3,
+    triggerOnce: false, // Animation triggers only once
+  });
+
+  return (
+    <motion.div 
+      ref={ref}
+      initial={{ transform: "translateY(100px)", opacity: 0 }}
+      animate={inView ? { transform: "translateY(0px)", opacity: 1 } : {}}
+      transition={{
+          type: "spring", // Spring effect for smooth animation
+          stiffness: 100, // Adjust the stiffness of the spring (higher is snappier)
+          damping: 10, // Controls how the spring settles (lower is more oscillatory)
+      }}
+      className="flex h-[28rem] items-center mt-10 justify-center gap-24"
+    >
+      {cardsArray.map((item, index) => (
+      <div 
+          key={index}
+          className="w-[calc(33%-4rem)] shadow-[0px_1.491px_10.597px_0px_rgba(255,252,0,0.80)_inset] even:shadow-[0px_1.491px_10.597px_0px_#0EC0C8_inset] h-full flex flex-col p-8 items-center justify-start gap-4 bg-[#313131] bg-opacity-70 rounded-2xl backdrop-blur-lg"
+      >
+          <Image
+              src={item.icon}
+              className="h-[4.5rem] w-[4.5rem]"
+              alt=""
+          />
+          <p className=" text-[2rem] font-neuehaas">
+            {item.title}
+          </p>
+          <div style={{ background: item.color }} className={`w-full h-[1.5px] relative`}>
+              <div style={{ background: item.color }} className="absolute w-3 aspect-square rounded-full top-0 left-0 -translate-y-1/2"></div>
+              <div style={{ background: item.color }} className="absolute w-3 aspect-square rounded-full top-0 right-0 -translate-y-1/2"></div>
+          </div>
+          <ul className="list-disc w-full text-left pt-4 px-6">
+              {item.points.map((point, id) => (
+                  <li
+                      key={id}
+                      className="text-[1.4rem] text-[#ededed] leading-[1.9rem] font-neuehaas font-normal"
+                  >
+                      {point}
+                  </li>
+              ))}
+          </ul>
+      </div>))}
+    </motion.div>
+  )
+}
+
+const PayoutCards = () => {
+
+  return (
+    <div className="w-full mt-[9rem]">
+      <TopBanner />
+      <AnimatedCards />
+      <AnimatedImage />
+
+      <div className="w-full flex flex-col items-center justify-start">
+        <AnimatedHeading />
+        <AnimatedBottomCards />
       </div>
     </div>
   );

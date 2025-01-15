@@ -1,4 +1,7 @@
+'use client'
+
 import Navbar from "./components/Navbar";
+import { motion } from "motion/react"
 import Banner from "./components/Homepage/Banner";
 import TradingGoalsCards from "./components/Homepage/TradingGoalsCards";
 import RealTradingCarousel from "./components/Homepage/RealTradingCarousel";
@@ -8,8 +11,11 @@ import FinancialMilestoneCarousel from "./components/Homepage/FinancialMilestone
 import FaqSection from "./components/Homepage/FaqSection";
 import DiscordSection from "./components/Homepage/DiscordSection";
 import footerImage from "../public/delete/footer.png"
-import aboutImage from "../public/delete/about.png"
 import Image from "next/image";
+import GradientText from "./components/ui/GradientText";
+import { IoChevronForward } from "react-icons/io5";
+import AboutSection from "./components/Homepage/AboutSection";
+import Footer from "./components/Footer";
 
 export default function Home() {
   return (
@@ -18,13 +24,7 @@ export default function Home() {
 
       <div className="w-full px-[2rem]">
         <Banner />
-        <div className="w-full flex items-center justify-center px-60 py-20">
-          <Image
-            src={aboutImage}
-            className="w-full h-fit mt-10"
-            alt=""
-          />
-        </div>
+        <AboutSection />
         <TradingGoalsCards />
       </div>
 
@@ -39,11 +39,7 @@ export default function Home() {
       <FaqSection />
       <div className="w-full px-[5.5rem] mt-60">
         <DiscordSection />
-        <Image
-          src={footerImage}
-          className="w-full h-fit mt-10"
-          alt=""
-        />
+        <Footer />
       </div>
     </div>
   );

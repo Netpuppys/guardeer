@@ -3,10 +3,27 @@ import GradientText from '../ui/GradientText'
 import Image from 'next/image'
 import discordMiniLogo from "../../../public/logos/discordMiniLogo.png"
 import discordLogo from "../../../public/logos/discordLogo.png"
+import { motion } from "motion/react"
+import { useInView } from "react-intersection-observer";
 
 const DiscordSection = () => {
+    const { ref, inView } = useInView({
+        threshold: 0.2,
+        triggerOnce: false, // Animation triggers only once
+    });
+
   return (
-    <div className='w-full flex items-center justify-center h-[25rem] gap-6'>
+    <motion.div 
+        ref={ref}
+        initial={{ transform: "translateY(60px)", opacity: 0 }}
+        animate={inView ? { transform: "translateY(0px)", opacity: 1 } : {}}
+        transition={{
+            type: "spring", // Spring effect for smooth animation
+            stiffness: 100, // Adjust the stiffness of the spring (higher is snappier)
+            damping: 10, // Controls how the spring settles (lower is more oscillatory)
+        }}
+        className='w-full flex items-center justify-center h-[25rem] gap-6'
+    >
         <div className='overflow-hidden w-[70%] h-full rounded-3xl bg-yellow-blue-gradient p-[2px]'>
             <div className='w-full h-full rounded-3xl bg-black flex items-center justify-center'>
                 <div className='h-full w-fit flex flex-col items-start justify-center pl-10 py-10'>
@@ -58,7 +75,7 @@ const DiscordSection = () => {
                 </div>
             </div>
         </div>
-    </div>
+    </motion.div>
   )
 }
 

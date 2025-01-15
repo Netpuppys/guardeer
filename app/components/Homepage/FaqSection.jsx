@@ -3,6 +3,8 @@
 import GradientText from "../ui/GradientText";
 import React, { useState } from "react";
 import { GoChevronDown, GoChevronRight } from "react-icons/go";
+import { useInView } from "react-intersection-observer";
+import { motion } from "motion/react"
 
 const data = [
   {
@@ -49,18 +51,60 @@ const FaqSection = () => {
     setOpenSectionIndex(index);
   };
 
+  const { ref, inView } = useInView({
+    threshold: 0.2,
+    triggerOnce: false, // Animation triggers only once
+  });
+
   return (
-    <div className="w-full flex flex-col items-center justify-start mt-28">
-      <p className="text-[4rem] text-[#d9d9d9] font-neuehaas font-bold text-center">
+    <div ref={ref} className="w-full flex flex-col items-center justify-start mt-28">
+      <motion.p 
+        initial={{ transform: "translateY(60px)", opacity: 0 }}
+        animate={inView ? { transform: "translateY(0px)", opacity: 1 } : {}}
+        transition={{
+            type: "spring", // Spring effect for smooth animation
+            stiffness: 100, // Adjust the stiffness of the spring (higher is snappier)
+            damping: 10, // Controls how the spring settles (lower is more oscillatory)
+        }}
+        className="text-[4rem] text-[#d9d9d9] font-neuehaas font-bold text-center"
+      >
         Frequently Asked <GradientText>Questions</GradientText>
-      </p>
-      <p className="text-center leading-[1.5rem] text-[#8F8F8F] text-[1.5rem] font-ttc font-medium ">
+      </motion.p>
+      <motion.p 
+        initial={{ transform: "translateY(60px)", opacity: 0 }}
+        animate={inView ? { transform: "translateY(0px)", opacity: 1 } : {}}
+        transition={{
+            delay: 0.2,
+            type: "spring", // Spring effect for smooth animation
+            stiffness: 100, // Adjust the stiffness of the spring (higher is snappier)
+            damping: 10, // Controls how the spring settles (lower is more oscillatory)
+        }}
+        className="text-center leading-[1.5rem] text-[#8F8F8F] text-[1.5rem] font-ttc font-medium "
+      >
         Our Support Team is available 24/7 via live chat.
-      </p>
+      </motion.p>
 
       <div className="w-[50rem] h-fit transition-all flex flex-col items-center gap-8 mt-12">
-        {data.map((item, id) => (
-          <div key={id} className={`transition-all w-full`}>
+        {data.map((item, id) => {
+          const { ref, inView } = useInView({
+            threshold: 0.1,
+            triggerOnce: false, // Animation triggers only once
+          });
+
+          return (
+          <motion.div
+            ref={ref}
+            initial={{ transform: "translateY(60px)", opacity: 0 }}
+            animate={inView ? { transform: "translateY(0px)", opacity: 1 } : {}}
+            transition={{
+                delay: 0.2,
+                type: "spring", // Spring effect for smooth animation
+                stiffness: 100, // Adjust the stiffness of the spring (higher is snappier)
+                damping: 10, // Controls how the spring settles (lower is more oscillatory)
+            }} 
+            key={id}
+            className={`transition-all w-full`}
+          >
             <button
               onClick={() => handleButtonClick(id)}
               className={`w-full h-[4.2rem] rounded-full transition-all group hover:p-[3px]
@@ -99,8 +143,9 @@ const FaqSection = () => {
                 {item.answer}
               </p>
             </div>
-          </div>
-        ))}
+          </motion.div>
+          )
+        })}
       </div>
       <div className="w-full max-w-[46rem] pt-4 flex items-center justify-end">
         <button className="flex items-center justify-center gap-1 text-[#EAEAEA] text-[1.4rem] font-medium">

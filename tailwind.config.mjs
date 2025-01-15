@@ -36,6 +36,7 @@ export default {
         "show-search": "show-search 400ms",
         "hide-search": "hide-search 400ms",
         "slide-left" : "slide-left 400ms ease",
+        "slide-in": "slide-in 800ms ease"
       },
       keyframes: {
         "show-search": {
@@ -58,6 +59,20 @@ export default {
             width: "20rem",
           }, to: {
             width: "4rem",
+          }
+        },
+        "slide-in": {
+          "0%": {
+            transform: "translateY(5rem)",
+            opacity: "0.3"
+          }, 
+          // "80%": {
+          //   transform: "translateY(-0.4rem)",
+          //   opacity: "0.8"
+          // },
+           "100%": {
+            transform: "translateY(0rem)",
+            opacity: "1"
           }
         }
       },
