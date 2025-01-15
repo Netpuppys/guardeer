@@ -12,9 +12,10 @@ import { Autoplay } from "swiper/modules"; // Updated import for modules
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+import { useEffect, useRef } from "react";
 const Card = ({}) => {
   return (
-    <div className="rounded-xl shadow-[0px_1.491px_10.597px_0px_rgba(255,252,0,0.80)_inset] even:shadow-[0px_1.491px_10.597px_0px_#0EC0C8_inset] h-28 w-full px-7 py-3 flex items-center justify-between bg-[#313131] bg-opacity-70 backdrop-blur-xl">
+    <div className="rounded-xl hover:-translate-x-10 transition-all duration-300 ease-in shadow-[0px_1.491px_10.597px_0px_rgba(255,252,0,0.80)_inset] even:shadow-[0px_1.491px_10.597px_0px_#0EC0C8_inset] h-28 w-full px-7 py-3 flex items-center justify-between bg-[#313131] bg-opacity-70 backdrop-blur-xl">
       <div className="w-fit">
         <p className="text-[2rem] text-white font-neuehaas font-bold">
           $ 18,200
@@ -34,6 +35,79 @@ const Card = ({}) => {
 };
 
 const Banner = () => {
+  const card = [
+    {
+      price: "$ 18,200",
+      name: "Raphael K.",
+      desc: "Chile",
+      image: payoutCardBackground,
+    },
+    {
+      price: "$ 18,200",
+      name: "Raphael K.",
+      desc: "Chile",
+      image: payoutCardBackground,
+    },
+    {
+      price: "$ 18,200",
+      name: "Raphael K.",
+      desc: "Chile",
+      image: payoutCardBackground,
+    },
+    {
+      price: "$ 18,200",
+      name: "Raphael K.",
+      desc: "Chile",
+      image: payoutCardBackground,
+    },
+    {
+      price: "$ 18,200",
+      name: "Raphael K.",
+      desc: "Chile",
+      image: payoutCardBackground,
+    },
+    {
+      price: "$ 18,200",
+      name: "Raphael K.",
+      desc: "Chile",
+      image: payoutCardBackground,
+    },
+    {
+      price: "$ 18,200",
+      name: "Raphael K.",
+      desc: "Chile",
+      image: payoutCardBackground,
+    },
+    {
+      price: "$ 18,200",
+      name: "Raphael K.",
+      desc: "Chile",
+      image: payoutCardBackground,
+    },
+  ];
+  const swiperRef = useRef(null);
+
+  useEffect(() => {
+    const swiperInstance = swiperRef.current.swiper;
+
+    const handleMouseEnter = () => {
+      swiperInstance.autoplay.stop(); // Stop autoplay on hover
+    };
+
+    const handleMouseLeave = () => {
+      swiperInstance.autoplay.start(); // Start autoplay when hover is removed
+    };
+
+    const swiperElement = swiperRef.current;
+    swiperElement.addEventListener("mouseenter", handleMouseEnter);
+    swiperElement.addEventListener("mouseleave", handleMouseLeave);
+
+    // Clean up the event listeners when the component is unmounted
+    return () => {
+      swiperElement.removeEventListener("mouseenter", handleMouseEnter);
+      swiperElement.removeEventListener("mouseleave", handleMouseLeave);
+    };
+  }, []);
   return (
     <div className="w-full flex items-end justify-between h-[calc(100vh-10.5rem)] min-h-[40rem] relative overflow-hidden rounded-[1.3rem]  border-opacity-20 border-text-light-gray">
       <Image
@@ -82,43 +156,51 @@ const Banner = () => {
         </div>
       </div>
       <div className="z-10 animate-slide-left w-fit pr-6 h-full top-0 right-0 overflow-hidden bg-black-right-gradient flex items-center">
-        <div className="py-8 w-[22rem] relative h-[36rem] flex flex-col items-start justify-start gap-6 overflow-y-scroll no-scrollbar">
+        <div className="py-8 w-[24.5rem] relative h-[43rem] flex flex-col items-start justify-start gap-6 overflow-y-scroll no-scrollbar">
           <Swiper
+            ref={swiperRef}
             autoplay={{
               delay: 0,
-              disableOnInteraction: false,
+              disableOnInteraction: true,
             }}
-            speed={3000}
-            slidesPerView={4}
+            speed={1000}
+            slidesPerView={5}
+            freeMode={true}
             direction="vertical"
             loop={true}
             modules={[Autoplay]}
-            className="mySwiper w-[22rem]"
+            className="mySwiper w-[24.5rem]"
           >
-            <SwiperSlide className="w-full h-fit">
-              <Card />
-            </SwiperSlide>
-            <SwiperSlide className="w-full">
-              <Card />
-            </SwiperSlide>
-            <SwiperSlide className="w-full">
-              <Card />
-            </SwiperSlide>
-            <SwiperSlide className="w-full">
-              <Card />
-            </SwiperSlide>
-            <SwiperSlide className="w-full">
-              <Card />
-            </SwiperSlide>
-            <SwiperSlide className="w-full">
-              <Card />
-            </SwiperSlide>
-            <SwiperSlide className="w-full">
-              <Card />
-            </SwiperSlide>
-            <SwiperSlide className="w-full">
-              <Card />
-            </SwiperSlide>
+            {card.map((card, index) => (
+              <SwiperSlide key={index} className="w-full px-10 h-fit">
+                <div
+                  className={`rounded-xl hover:-translate-x-8 transition-all duration-300 ease-in ${
+                    index % 2 === 0
+                      ? "shadow-[0px_1.491px_10.597px_0px_#0EC0C8_inset] hover:shadow-[0px_1.491px_10.597px_0px_#0EC0C8]"
+                      : "shadow-[0px_1.491px_10.597px_0px_rgba(255,252,0,0.80)_inset] hover:shadow-[0px_1.491px_10.597px_0px_rgba(255,252,0,0.80)]"
+                  } h-28 w-full px-7 py-3 flex items-center justify-between bg-[#313131] bg-opacity-70 backdrop-blur-xl`}
+                >
+                  <div className="w-fit">
+                    <p className="text-[2rem] text-white font-neuehaas font-bold">
+                      {card.price}
+                    </p>
+                    <p className="text-[#B0B0B0] text-[1.14rem] font-ttc">
+                      {card.name}
+                    </p>
+                    <p className="text-[#949494] text-sm font-ttc">
+                      {card.desc}
+                    </p>
+                  </div>
+                  <div className="h-full rounded-2xl aspect-square border-2 border-[#E5CD7C] even:border-[#0EC0C8] flex items-center justify-center overflow-hidden">
+                    <Image
+                      src={card.image}
+                      className="w-full h-full object-cover"
+                      alt=""
+                    />
+                  </div>
+                </div>
+              </SwiperSlide>
+            ))}
           </Swiper>
         </div>
       </div>
