@@ -94,7 +94,7 @@ const PayoutCards = () => {
 
         <div className="flex items-end justify-between mt-14">
           {/* CTA Button */}
-          <button className="mt-8 relative z-10 shadow-yellow-glow group transition-all border-[1.3px] border-[#E5CD7C] h-[4.3rem] px-16 flex items-center justify-center gap-5 rounded-full ">
+          <button className="mt-8 relative z-10 hover:shadow-yellow-glow group transition-all border-[1.3px] border-[#E5CD7C] h-[4.3rem] px-16 flex items-center justify-center gap-5 rounded-full ">
             <span className="font-helvetica text-[#f4f4f4] text-[1.5rem] font-extrabold ">
               Discover more about daily payouts
             </span>

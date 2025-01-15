@@ -1,5 +1,8 @@
+'use client'
+
 import backgroundImage from "../../../public/background/backgroundImage.png";
 import { BsArrowRight } from "react-icons/bs";
+import { motion } from "motion/react"
 import Image from "next/image";
 import dailyPayouts from "../../../public/icons/dailyPayouts.png";
 import profitSplit from "../../../public/icons/profitSplit.png";
@@ -34,7 +37,9 @@ const Card = ({  }) => {
 
 const Banner = () => {
   return (
-    <div className="w-full flex items-end justify-between h-[calc(100vh-10.5rem)] min-h-[40rem] relative overflow-hidden rounded-[1.3rem]  border-opacity-20 border-text-light-gray">
+    <div
+      className="w-full flex items-end justify-between h-[calc(100vh-10.5rem)] min-h-[40rem] relative overflow-hidden rounded-[1.3rem]  border-opacity-20 border-text-light-gray"
+    >
         <Image
           src={backgroundImage}
           className="absolute w-full h-full object-cover"
@@ -52,7 +57,7 @@ const Banner = () => {
                     <h4 className="max-w-80 font-neuehaas text-wrap text-xl">
                         The only prop firm that funds you with real capital.
                     </h4>
-                    <button className="rounded-full border-[1.5px] border-[#757575] border-l-[#04C5D2] aspect-square w-16 p-2 hover:rotateBorderL">
+                    <button className="rounded-full border-[1.5px] border-[#757575] border-l-[#04C5D2] hover:border-l-[#757575] hover:border-[#04C5D2] transition-all duration-500 aspect-square w-16 p-2 hover:rotateBorderL">
                         <div className="w-full h-full rounded-full bg-[#04C5D2] flex items-center justify-center text-black text-xl ">
                             <BsArrowRight />
                         </div>

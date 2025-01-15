@@ -6,6 +6,7 @@ import ChooseYourChallenge from "./components/Homepage/ChooseYourChallenge";
 import PayoutCards from "./components/Homepage/PayoutCards";
 import FinancialMilestoneCarousel from "./components/Homepage/FinancialMilestoneCarousel";
 import FaqSection from "./components/Homepage/FaqSection";
+import DiscordSection from "./components/Homepage/DiscordSection";
 
 export default function Home() {
   return (
@@ -26,6 +27,9 @@ export default function Home() {
 
       <FinancialMilestoneCarousel />
       <FaqSection />
+      <div className="w-full px-[5.5rem] mt-60">
+        <DiscordSection />
+      </div>
     </div>
   );
 }

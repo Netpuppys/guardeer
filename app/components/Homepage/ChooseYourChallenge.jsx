@@ -8,6 +8,9 @@ import { GoArrowUpRight } from "react-icons/go";
 import knight from "../../../public/icons/knight.png";
 import royal from "../../../public/icons/royal.png";
 import emperor from "../../../public/icons/emperor.png";
+import knightBg from "../../../public/background/knightBg.png"
+import royalBg from "../../../public/background/royalBg.png"
+import emperorBg from "../../../public/background/emperorBg.png"
 
 const challenges = [
   {
@@ -30,14 +33,17 @@ const challenges = [
 const nameChallenges = [
   {
     icon: knight,
+    background: knightBg,
     name: "Knight Challenge",
   },
   {
     icon: royal,
+    background: royalBg,
     name: "Royal Challenge",
   },
   {
     icon: emperor,
+    background: emperorBg,
     name: "Emperor Challenge",
   },
 ];
@@ -108,14 +114,19 @@ const ChooseYourChallenge = () => {
             {nameChallenges.map((item, index) => (
               <div
                 key={index}
-                className="h-full bg-[#111111] w-80 border border-[#0EC0C8] even:border-[#FBF93A] rounded-2xl flex flex-col items-center justify-center gap-2"
+                className="h-full bg-[#111111] w-80 border border-[#0EC0C8] even:border-[#FBF93A] rounded-2xl flex flex-col items-center justify-center gap-2 relative overflow-hidden"
               >
                 <Image
-                  src={item.icon}
-                  className="h-[3.6rem] w-[3.6rem]"
+                  src={item.background}
+                  className="w-full opacity-20 h-full absolute top-0 left-0 object-cover"
                   alt=""
                 />
-                <p className="font-neuehaas text-white text-[1.6rem]">
+                <Image
+                  src={item.icon}
+                  className="h-[3.6rem] z-10 relative w-[3.6rem]"
+                  alt=""
+                />
+                <p className="font-neuehaas z-10 relative text-white text-[1.6rem]">
                   {item.name}
                 </p>
               </div>
@@ -168,7 +179,7 @@ const ChooseYourChallenge = () => {
                     >
                       <td className="h-[5.6rem] text-center w-1/3 bg-[#111111]">
                         <div className="w-full h-full flex items-center justify-between pl-[3.8rem] pr-[1.7rem]">
-                          <p className="text-[#D4D4D4] text-[1.5rem] font-helvetica font-medium ">
+                          <p className="text-[#D4D4D4] text-[1.3rem] font-helvetica font-medium ">
                             {row.feature}
                           </p>
                           <button className="w-7 aspect-square flex items-center justify-center rounded-full text-[#383838] text-lg font-helvetica bg-[#0EC0C8]">
@@ -176,10 +187,10 @@ const ChooseYourChallenge = () => {
                           </button>
                         </div>
                       </td>
-                      <td className="h-[5.6rem] text-center w-1/3 text-[#D4D4D4] text-[1.5rem] font-medium font-helvetica">
+                      <td className="h-[5.6rem] text-center w-1/3 text-[#D4D4D4] text-[1.2rem] font-medium font-helvetica">
                         {row.phase1}
                       </td>
-                      <td className="h-[5.6rem] text-center w-1/3 bg-[#111111] text-[#D4D4D4] text-[1.5rem] font-medium font-helvetica">
+                      <td className="h-[5.6rem] text-center w-1/3 bg-[#111111] text-[#D4D4D4] text-[1.2rem] font-medium font-helvetica">
                         {row.funded}
                       </td>
                     </tr>
@@ -192,7 +203,7 @@ const ChooseYourChallenge = () => {
           <div className="w-full h-[7.8rem] bg-yellow-blue-gradient rounded-[3rem] mt-8 p-[1.8px]">
             <div className="w-full h-full rounded-[3rem] bg-black flex items-center justify-center">
               <button className="h-[3.75rem] pl-8 bg-[#0EC0C8] flex items-center justify-between gap-10 rounded-full p-2">
-                <p className="text-[#222222] font-neuehaas font-semibold text-[1.4rem] ">
+                <p className="text-[#222222] font-neuehaas font-medium tracking-wider text-[1.4rem] ">
                   {"Purchase Now (Rs 22,040.90)"}
                 </p>
                 <div className="h-full aspect-square flex items-center justify-center bg-white rounded-full text-[#262626] font-bold font-neuehaas text-[1.4rem]">
