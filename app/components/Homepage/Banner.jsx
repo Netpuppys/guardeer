@@ -2,7 +2,6 @@
 
 import backgroundImage from "../../../public/background/backgroundImage.png";
 import { BsArrowRight } from "react-icons/bs";
-import { motion } from "motion/react"
 import Image from "next/image";
 import dailyPayouts from "../../../public/icons/dailyPayouts.png";
 import profitSplit from "../../../public/icons/profitSplit.png";
@@ -85,7 +84,7 @@ const Banner = () => {
                 </div>
             </div>
         </div>
-        <div className="z-10 w-fit pr-6 h-full top-0 right-0 overflow-hidden bg-black-right-gradient flex items-center">
+        <div className="z-10 animate-slide-left w-fit pr-6 h-full top-0 right-0 overflow-hidden bg-black-right-gradient flex items-center">
             <div className="py-8 w-[22rem] relative h-[36rem] flex flex-col items-start justify-start gap-6 overflow-y-scroll no-scrollbar">
                 <Card />
                 <Card />

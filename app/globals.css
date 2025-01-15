@@ -164,11 +164,9 @@
   display: none; /* For Webkit-based browsers */
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #000000;
-    --foreground: #ededed;
-  }
+:root {
+  --background: #000000;
+  --foreground: #ededed;
 }
 
 body {

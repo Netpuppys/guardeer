@@ -34,7 +34,8 @@ export default {
       },
       animation: {
         "show-search": "show-search 400ms",
-        "hide-search": "hide-search 400ms"
+        "hide-search": "hide-search 400ms",
+        "slide-left" : "slide-left 400ms ease",
       },
       keyframes: {
         "show-search": {
@@ -42,6 +43,14 @@ export default {
             width: "4rem",
           }, to: {
             width: "20rem"
+          }
+        },
+        "slide-left": {
+          from: {
+            transform: "translateX(25rem)"
+          },
+          to: {
+            transform: "translateX(0rem)"
           }
         },
         "hide-search": {

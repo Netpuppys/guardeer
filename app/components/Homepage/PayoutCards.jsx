@@ -60,7 +60,7 @@ const cards = [
         Fast <span className="text-[#04C5D2]">Bi-Weekly</span> Payouts
       </>
     ),
-    icon: challenge,
+    icon: objectives,
     description: [
       "Receive Profits Every Two Weeks.",
       "Maintain A Smooth Cash Flow.",
@@ -69,6 +69,39 @@ const cards = [
     color: "#04C5D2",
   },
 ];
+
+const cardsArray = [
+  {
+      icon: challenge,
+      color: "#E5CD7C",
+      title: <>Choose Your <span className="text-[#E5CD7C] font-semibold text-[2rem]">Challenge</span></>,
+      points: [
+          "Pick from 1-step, 2-step, or 3-step challenge accounts.",
+          "Match the challenge to your risk tolerance and trading style.",
+          "Select a capital size that aligns with your trading goals."
+      ]
+  },
+  {
+      icon: objectives,
+      color: "#0EC0C8",
+      title: <>Conquer Your <span className="text-[#0EC0C8] font-semibold text-[2rem]">Objectives</span></>,
+      points: [
+          "Meet clear objectives within a set timeframe.",
+          "Refine your trading strategies.",
+          "Prove your skills and dominate the market."
+      ]
+  },
+  {
+      icon: capital,
+      color: "#E5CD7C",
+      title: <>Secure Funded <span className="text-[#E5CD7C] font-semibold text-[2rem]">Capital</span></>,
+      points: [
+          "Gain access to a substantial pool of funded capital.",
+          "Turn virtual successes into real-world profits.",
+          "Experience the excitement of trading with real stakes."
+      ]
+  },
+]
 
 const PayoutCards = () => {
   return (
@@ -134,6 +167,9 @@ const PayoutCards = () => {
             className={`w-[calc(25%-3rem)] h-[24rem] flex flex-col p-6 items-center justify-start gap-4 bg-[#313131] bg-opacity-70 rounded-2xl backdrop-blur-lg shadow-[0px_1.491px_10.597px_0px_rgba(255,252,0,0.80)_inset] even:shadow-[0px_1.491px_10.597px_0px_#0EC0C8_inset]`}
           >
             <Image src={item.icon} className="h-[3.5rem] w-[3.5rem]" alt="" />
+            <p className=" text-[1.5rem] font-neuehaas">
+              {item.title}
+            </p>
             <div
               style={{ background: item.color }}
               className={`w-full h-[1.5px] min-h-[1.5px] relative`}
@@ -179,6 +215,37 @@ const PayoutCards = () => {
           Our selected trading platforms give you a high-performance trading
           experience with:
         </p>
+        <div className="flex h-[28rem] items-center mt-10 justify-center gap-24">
+        {cardsArray.map((item, index) => (
+                <div 
+                    key={index}
+                    className="w-[calc(33%-4rem)] shadow-[0px_1.491px_10.597px_0px_rgba(255,252,0,0.80)_inset] even:shadow-[0px_1.491px_10.597px_0px_#0EC0C8_inset] h-full flex flex-col p-8 items-center justify-start gap-4 bg-[#313131] bg-opacity-70 rounded-2xl backdrop-blur-lg"
+                >
+                    <Image
+                        src={item.icon}
+                        className="h-[4.5rem] w-[4.5rem]"
+                        alt=""
+                    />
+                    <p className=" text-[2rem] font-neuehaas">
+                      {item.title}
+                    </p>
+                    <div style={{ background: item.color }} className={`w-full h-[1.5px] relative`}>
+                        <div style={{ background: item.color }} className="absolute w-3 aspect-square rounded-full top-0 left-0 -translate-y-1/2"></div>
+                        <div style={{ background: item.color }} className="absolute w-3 aspect-square rounded-full top-0 right-0 -translate-y-1/2"></div>
+                    </div>
+                    <ul className="list-disc w-full text-left pt-4 px-6">
+                        {item.points.map((point, id) => (
+                            <li
+                                key={id}
+                                className="text-[1.4rem] text-[#ededed] leading-[1.9rem] font-neuehaas font-normal"
+                            >
+                                {point}
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            ))}
+        </div>
       </div>
     </div>
   );

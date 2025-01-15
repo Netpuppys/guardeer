@@ -59,7 +59,7 @@ const cardsArray = [
     {
         icon: objectives,
         color: "#0EC0C8",
-        title: <>Conquer Your <span className="text-[#E5CD7C] font-semibold text-[2rem]">Objectives</span></>,
+        title: <>Conquer Your <span className="text-[#0EC0C8] font-semibold text-[2rem]">Objectives</span></>,
         points: [
             "Meet clear objectives within a set timeframe.",
             "Refine your trading strategies.",
@@ -115,7 +115,7 @@ const TradingGoalsCards = () => {
             </div>
         </div>
 
-        <div className="flex h-[26rem] items-center mt-10 justify-center gap-24">
+        <div className="flex h-[27rem] items-center mt-10 justify-center gap-24">
             {cardsArray.map((item, index) => (
                 <div 
                     key={index}
@@ -126,6 +126,9 @@ const TradingGoalsCards = () => {
                         className="h-[4.5rem] w-[4.5rem]"
                         alt=""
                     />
+                    <p className=" text-[2rem] font-neuehaas">
+                      {item.title}
+                    </p>
                     <div style={{ background: item.color }} className={`w-full h-[1.5px] relative`}>
                         <div style={{ background: item.color }} className="absolute w-3 aspect-square rounded-full top-0 left-0 -translate-y-1/2"></div>
                         <div style={{ background: item.color }} className="absolute w-3 aspect-square rounded-full top-0 right-0 -translate-y-1/2"></div>

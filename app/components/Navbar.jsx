@@ -40,6 +40,10 @@ const Navbar = () => {
     }
   }, [isSearchBarVisible]);
 
+//   const handleVibrate = () => {
+//       navigator.vibrate(500); // Vibrate pattern
+//   };
+
   return (
     <div
         className="w-[calc(100vw-4rem)] h-[4.5rem] z-50 fixed top-8 left-8 right-8 bg-[#1D1E21] rounded-[1.3rem] py-[0.75rem] px-[1.25rem] flex items-center justify-between gap-20"
@@ -87,7 +91,9 @@ const Navbar = () => {
             Login
           </div>
         </button>
-        <button className="overflow-hidden group h-12 w-40 font-ttc text-white flex items-center justify-center text-lg font-semibold rounded-full relative">
+        <button 
+            className="overflow-hidden group h-12 w-40 font-ttc text-white flex items-center justify-center text-lg font-semibold rounded-full relative"
+        >
             <div className="w-full aspect-square absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-yellow-blue-gradient origin-center group-hover:rotate-180  transition-all duration-500 ease-in-out"></div>
             <p className="relative z-10">
                 Signup
