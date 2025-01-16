@@ -55,7 +55,7 @@ const cardsArray = [
     {
         icon: challenge,
         color: "#E5CD7C",
-        title: <>Choose Your <span className="text-[#E5CD7C] font-semibold text-[2rem]">Challenge</span></>,
+        title: <>Choose Your <span className="text-[#E5CD7C] font-semibold">Challenge</span></>,
         points: [
             "Pick from 1-step, 2-step, or 3-step challenge accounts.",
             "Match the challenge to your risk tolerance and trading style.",
@@ -66,7 +66,7 @@ const cardsArray = [
     {
         icon: objectives,
         color: "#0EC0C8",
-        title: <>Conquer Your <span className="text-[#0EC0C8] font-semibold text-[2rem]">Objectives</span></>,
+        title: <>Conquer Your <span className="text-[#0EC0C8] font-semibold">Objectives</span></>,
         points: [
             "Meet clear objectives within a set timeframe.",
             "Refine your trading strategies.",
@@ -77,7 +77,7 @@ const cardsArray = [
     {
         icon: capital,
         color: "#E5CD7C",
-        title: <>Secure Funded <span className="text-[#E5CD7C] font-semibold text-[2rem]">Capital</span></>,
+        title: <>Secure Funded <span className="text-[#E5CD7C] font-semibold">Capital</span></>,
         points: [
             "Gain access to a substantial pool of funded capital.",
             "Turn virtual successes into real-world profits.",
@@ -113,7 +113,7 @@ const Cards = ({ item, index }) => {
                 className="h-[4.5rem] w-[4.5rem]"
                 alt=""
             />
-            <p className=" text-[2rem] font-neuehaas">
+            <p className=" text-[clamp(1.5rem,1.9vw,2.2rem)] font-neuehaas">
                 {item.title}
             </p>
             <div style={{ background: item.color }} className={`w-full h-[1.5px] relative`}>
@@ -124,7 +124,7 @@ const Cards = ({ item, index }) => {
                 {item.points.map((point, id) => (
                     <li
                         key={id}
-                        className="text-[1.4rem] text-[#ededed] leading-[1.9rem] font-neuehaas font-normal"
+                        className="text-[clamp(1rem,1.4vw,1.6rem)] text-[#ededed] leading-[1.9rem] font-neuehaas font-normal"
                     >
                         {point}
                     </li>
@@ -221,7 +221,7 @@ const TradingGoalsCards = () => {
             </div>
         </motion.div>
 
-        <div className="flex h-[27rem] items-center mt-10 justify-center gap-24">
+        <div className="flex h-[29rem] items-center mt-10 justify-center gap-24">
             {cardsArray.map((item, index) => (
                 <div key={index} className="w-[calc(33%-4rem)] h-full">
                     <Cards item={item} index={index} />

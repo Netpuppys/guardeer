@@ -27,7 +27,7 @@ const DiscordSection = () => {
         <div className='overflow-hidden w-[70%] h-full rounded-3xl bg-yellow-blue-gradient p-[2px]'>
             <div className='w-full h-full rounded-3xl bg-black flex items-center justify-center'>
                 <div className='h-full w-fit flex flex-col items-start justify-center pl-10 py-10'>
-                    <p className='text-[2.3rem] font-neuehaas text-[#ebebeb] text-nowrap'>
+                    <p className='text-[clamp(1.7rem,2.2vw,3rem)] font-neuehaas text-[#ebebeb] text-nowrap'>
                         Our{" "}<GradientText>close-knit community</GradientText>{" "}is always
                         <br/>
                         ready to support, and we organize
@@ -56,7 +56,7 @@ const DiscordSection = () => {
         </div>
         <div className='overflow-hidden w-[30%] h-full rounded-3xl bg-yellow-blue-gradient p-[2px]'>
             <div className='w-full h-full rounded-3xl bg-black flex flex-col items-center justify-center'>
-                <p className='text-center text-nowrap text-[#ebebeb] text-[2.1rem] leading-[2.6rem] font-neuehaas '>
+                <p className='text-center text-nowrap text-[#ebebeb] text-[clamp(1.7rem,2vw,3rem)] leading-[2.6rem] font-neuehaas '>
                     Join the Next Generation of
                     <br/>
                     Funded Traders

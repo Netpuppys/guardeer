@@ -15,7 +15,7 @@ import Footer from "./components/Footer";
 
 export default function Home() {
   return (
-    <div className="w-full relative pt-[8.5rem] pb-[8rem] h-full min-h-[300vh]">
+    <div className="w-full relative pt-[8.5rem] pb-[1.5rem] h-full min-h-[300vh]">
       <Navbar />
 
       <div className="w-full px-[2rem]">

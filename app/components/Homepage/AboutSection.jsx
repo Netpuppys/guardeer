@@ -28,14 +28,14 @@ const AboutSection = () => {
         <GradientText>About</GradientText>{" "}
         Us
       </p>
-      <p className="text-center text-[#B1B1B1] font-neuehaas text-[1.3rem] tracking-wider pt-[1.5rem]">
+      <p className="text-center text-[#B1B1B1] font-neuehaas text-[clamp(1rem,1.2vw,1.4rem)] tracking-wider pt-[1.5rem] text-nowrap">
         Imagine a world where skilled hunters stalk the financial markets, their knowledge and strategies honed
         <br/>
         to razor sharpness. But unlike the traditional hunt, their prey isn't a physical creature - it's opportunity.
         <br/>
         The opportunity to capitalize on market movements and turn calculated risks into rewards.
       </p>
-      <p className="text-[#0EC0C8] text-center font-neuehaas text-[1.3rem] tracking-wider pt-[1.2rem]">
+      <p className="text-[#0EC0C8] text-center font-neuehaas text-[clamp(1rem,1.2vw,1.4rem)] tracking-wider pt-[1.2rem] text-nowrap">
         However, even the most skilled hunters can be hindered by a lack of resources. In this financial jungle,
         <br/>
         the biggest limitation can often be the starting capital.

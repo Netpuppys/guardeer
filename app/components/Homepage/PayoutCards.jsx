@@ -2,9 +2,6 @@ import GradientText from "../ui/GradientText";
 import React from "react";
 import payoutBanner from "../../../public/background/payoutBanner2.png";
 import Image from "next/image";
-import clockIcon from "../../../public/icons/24Hour.png";
-import trailing from "../../../public/icons/trailing.png";
-import news from "../../../public/icons/news.png";
 import { BsArrowRight } from "react-icons/bs";
 import profitSplit from "../../../public/icons/profitSplit2.png";
 import objectives from "../../../public/icons/objectives2.png";
@@ -85,7 +82,7 @@ const cardsArray = [
   {
       icon: tradingPlatform,
       color: "#E5CD7C",
-      title: <>Choose Your <span className="text-[#E5CD7C] font-semibold text-[2rem]">Challenge</span></>,
+      title: <>Choose Your <span className="text-[#E5CD7C] font-semibold">Challenge</span></>,
       points: [
           "Pick from 1-step, 2-step, or 3-step challenge accounts.",
           "Match the challenge to your risk tolerance and trading style.",
@@ -95,7 +92,7 @@ const cardsArray = [
   {
       icon: marketAccess,
       color: "#0EC0C8",
-      title: <>Conquer Your <span className="text-[#0EC0C8] font-semibold text-[2rem]">Objectives</span></>,
+      title: <>Conquer Your <span className="text-[#0EC0C8] font-semibold">Objectives</span></>,
       points: [
           "Meet clear objectives within a set timeframe.",
           "Refine your trading strategies.",
@@ -105,7 +102,7 @@ const cardsArray = [
   {
       icon: bestExecution,
       color: "#E5CD7C",
-      title: <>Secure Funded <span className="text-[#E5CD7C] font-semibold text-[2rem]">Capital</span></>,
+      title: <>Secure Funded <span className="text-[#E5CD7C] font-semibold">Capital</span></>,
       points: [
           "Gain access to a substantial pool of funded capital.",
           "Turn virtual successes into real-world profits.",
@@ -139,12 +136,12 @@ const TopBanner = () => {
         />
 
         <div className="relative z-10 flex flex-col items-end justify-center">
-          <h3 className="text-[4.5rem] font-bold leading-[5.2rem] mb-4 text-right">
+          <h3 className="text-[clamp(3.5rem,4.3vw,5rem)] font-bold leading-[5.2rem] mb-4 text-right text-nowrap">
             <GradientText>Why settle for promises</GradientText>
             <br />
             when you can have real capital?
           </h3>
-          <p className="text-[#8F8F8F] text-[1.5rem] max-w-[60%] text-right">
+          <p className="text-[#8F8F8F] text-[clamp(1.1rem,1.4vw,1.8rem)] max-w-[60%] text-right">
             Funding Traders With Real Capital Isn't Just A Catchy Pitch - It's
             The Foundation Of A Partnership Built On Trust And Shared Success.
           </p>
@@ -153,7 +150,7 @@ const TopBanner = () => {
         <div className="flex items-end justify-between mt-14">
           {/* CTA Button */}
           <button className="mt-8 relative z-10 hover:shadow-yellow-glow group transition-all border-[1.3px] border-[#E5CD7C] h-[4.3rem] px-16 flex items-center justify-center gap-5 rounded-full ">
-            <span className="font-helvetica text-[#f4f4f4] text-[1.5rem] font-extrabold ">
+            <span className="font-helvetica text-[#f4f4f4] text-[clamp(1.1rem,1.4vw,1.8rem)] font-extrabold text-nowrap">
               Discover more about daily payouts
             </span>
             <span className="text-[2rem]">
@@ -211,7 +208,7 @@ const AnimatedCards = () => {
             className={`w-[calc(25%-3rem)] h-[26rem] flex flex-col p-6 items-center justify-start gap-4 bg-[#313131] bg-opacity-70 rounded-2xl backdrop-blur-lg shadow-[0px_1.491px_10.597px_0px_rgba(255,252,0,0.80)_inset] even:shadow-[0px_1.491px_10.597px_0px_#0EC0C8_inset]`}
           >
             <Image src={item.icon} className="h-[3.5rem] w-[3.5rem]" alt="" />
-            <p className=" text-[1.5rem] font-neuehaas">
+            <p className=" text-[clamp(1.1rem,1.4vw,1.8rem)] font-neuehaas">
               {item.title}
             </p>
             <div
@@ -284,7 +281,7 @@ const AnimatedHeading = () => {
       }}
       className="w-full flex flex-col items-center justify-start"
     >
-      <p className="font-helvetica text-[#d9d9d9] text-[3.5rem] font-bold text-center">
+      <p className="font-helvetica text-[#d9d9d9] text-[clamp(3rem,3.3vw,4rem)] font-bold text-center">
           Trade with Confidence,{" "}
           <GradientText>Succeed with Precision</GradientText>
         </p>
@@ -329,7 +326,7 @@ const AnimatedBottomCards = () => {
               className="h-[4.5rem] w-[4.5rem]"
               alt=""
           />
-          <p className=" text-[2rem] font-neuehaas">
+          <p className=" text-[clamp(1.5rem,1.9vw,2.3rem)] font-neuehaas">
             {item.title}
           </p>
           <div style={{ background: item.color }} className={`w-full h-[1.5px] relative`}>
@@ -340,7 +337,7 @@ const AnimatedBottomCards = () => {
               {item.points.map((point, id) => (
                   <li
                       key={id}
-                      className="text-[1.4rem] text-[#ededed] leading-[1.9rem] font-neuehaas font-normal"
+                      className="text-[clamp(1.1rem,1.3vw,1.7rem)] text-[#ededed] leading-[1.9rem] font-neuehaas font-normal"
                   >
                       {point}
                   </li>
