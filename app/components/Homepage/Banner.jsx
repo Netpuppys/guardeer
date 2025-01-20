@@ -53,8 +53,9 @@ const AnimatedCards = () => {
           stiffness: 100, // Adjust the stiffness of the spring (higher is snappier)
           damping: 10, // Controls how the spring settles (lower is more oscillatory)
       }}
-      className="pl-10 pb-4 w-fit flex items-end gap-5"
+      className="px-2 md:px-0 md:pl-10 pb-4 w-fit flex items-end gap-5"
     >
+        {/* big card */}
         <div className="rounded-2xl backdrop-blur-xl bg-black bg-opacity-40 z-10 max-w-[32rem] p-6">
           <h3 className="text-[#D9D9D9] font-neuehaas text-5xl font-bold text-wrap">
             Payouts from the first trade.
@@ -73,7 +74,8 @@ const AnimatedCards = () => {
             </button>
           </div>
         </div>
-        <div className="w-80 p-6 bg-black bg-opacity-50 rounded-2xl backdrop-blur-lg flex flex-col items-start gap-4">
+      {/* small card */}
+        <div className="w-80 p-6 bg-black bg-opacity-50 rounded-2xl backdrop-blur-lg hidden md:flex flex-col items-start gap-4">
           <div className="flex items-center justify-start gap-3">
             <Image src={dailyPayouts} className="h-[1.5rem] w-fit" alt="" />
             <p className="font-neuehaas text-[#dedede] tracking-[0.02125rem]">
@@ -172,17 +174,19 @@ const Banner = () => {
     };
   }, []);
   return (
-    <div className="w-full flex items-end justify-between h-[calc(100vh-10.5rem)] min-h-[40rem] relative overflow-hidden rounded-[1.3rem]  border-opacity-20 border-text-light-gray">
-      <Image
-        src={backgroundImage}
-        className="absolute w-full h-full object-cover"
-        alt="background"
-      />
+    <div className="w-full flex items-end justify-between h-screen md:h-[calc(100vh-10.5rem)] min-h-[40rem] relative md:rounded-[1.3rem] md:bg-yellow-blue-gradient md:p-[0.5px] overflow-hidden">
+      <div className="absolute w-full h-full top-0 left-0 object-cover md:rounded-[1.3rem] p-[1px] overflow-hidden">
+        <Image
+          src={backgroundImage}
+          className="w-full h-full opacity-50 md:opacity-100 object-cover md:rounded-[1.3rem]"
+          alt="background"
+        />
+      </div>
 
       <AnimatedCards />
       
-      <div className="z-10 animate-slide-left w-fit pr-6 h-full top-0 right-0 overflow-hidden bg-black-right-gradient flex items-center">
-        <div className="py-8 w-[24.5rem] relative h-[43rem] flex flex-col items-start justify-start gap-6 overflow-y-scroll no-scrollbar">
+      <div className="z-10 animate-slide-left w-fit h-full overflow-hidden bg-black-right-gradient rounded-r-[1.3rem] hidden md:flex items-center">
+        <div className="py-8 w-[24.5rem] relative h-[43rem] flex flex-col items-end justify-start gap-6 overflow-y-scroll no-scrollbar">
           <Swiper
             ref={swiperRef}
             autoplay={{
@@ -198,7 +202,7 @@ const Banner = () => {
             className="mySwiper w-[24.5rem]"
           >
             {card.map((card, index) => (
-              <SwiperSlide key={index} className="w-full px-10 h-fit">
+              <SwiperSlide key={index} className="w-full pl-10 px-3 h-fit">
                 <div
                   className={`rounded-xl hover:-translate-x-8 transition-all duration-300 ease-in ${
                     index % 2 === 0

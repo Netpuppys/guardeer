@@ -5,6 +5,7 @@ import { motion } from "motion/react"
 import { useInView } from "react-intersection-observer";
 import Image from 'next/image';
 import Link from 'next/link';
+import GradientText from './ui/GradientText';
 
 const footerLinks = [
     {
@@ -51,7 +52,7 @@ const BottomText = () => {
                 stiffness: 100, // Adjust the stiffness of the spring (higher is snappier)
                 damping: 10, // Controls how the spring settles (lower is more oscillatory)
             }} 
-            className='text-[#8F8F8F] font-neuehaas w-full text-left mt-6 px-6'
+            className='text-[#8F8F8F] font-neuehaas w-full text-justify md:text-left mt-10 md:mt-6 px-6'
         >
             We offer virtual demo accounts simulating live market conditions. Any reference to 'funded' refers to virtual funding only. Our services are not investment services or advice, and our staff is not authorized to provide investment recommendations. All content on our website is for educational purposes only and does not constitute investment advice or recommendations.
         </motion.p>
@@ -75,10 +76,10 @@ const Footer = () => {
                 stiffness: 100, // Adjust the stiffness of the spring (higher is snappier)
                 damping: 10, // Controls how the spring settles (lower is more oscillatory)
             }}
-            className='w-full bg-yellow-blue-gradient h-[22rem] rounded-3xl p-[2px]'
+            className='w-full bg-yellow-blue-gradient md:h-[22rem] rounded-3xl p-[2px]'
         >
-            <div className='w-full h-full rounded-3xl bg-black px-[2.75rem] py-6 flex items-center justify-center'>
-                <div className='w-1/2 h-full flex flex-col items-start justify-start'>
+            <div className='w-full h-full rounded-3xl bg-black px-7 md:px-[2.75rem] py-6 flex flex-col md:flex-row items-center justify-center gap-y-12'>
+                <div className='w-full md:w-1/2 h-full flex flex-col items-center md:items-start justify-start'>
                     <Link
                         href={"/"}
                         className='h-20'
@@ -101,16 +102,16 @@ const Footer = () => {
                             </div>
                         ))}
                     </div>
-                    <p className='text-[#D9D9D9] font-neuehaas text-[2.2rem] font-light mt-8'>
+                    <p className='text-[#D9D9D9] font-neuehaas text-[2.2rem] text-center md:text-left font-medium md:font-light mt-4 md:mt-8'>
                         Trade, Earn, Repeat
                     </p>
-                    <p className='text-[#8F8F8F] font-neuehaas pt-4'>
+                    <p className='text-[#8F8F8F] font-neuehaas pt-2 md:pt-4 text-center md:text-left '>
                         How does Guardeer Funding work?
-                        <br/>
+                        <br className='hidden md:block'/>
                         How does Guardeer Funding work?
                     </p>
                 </div>
-                <div className='w-1/2 h-full flex items-start justify-center gap-20'>
+                <div className='w-full md:w-1/2 h-full hidden md:flex items-start justify-center md:gap-20'>
                     {footerLinks.map((item, index) => (
                         <div key={index} className='flex flex-col items-center justify-start'>
                             <p className='text-[#D9D9D9] font-neuehaas text-[1.2rem]'>
@@ -129,6 +130,58 @@ const Footer = () => {
                             </div>
                         </div>
                     ))}
+                </div>
+                <div className='w-full md:hidden flex items-start justify-between'>
+                    <div className='flex flex-col items-start justify-start'>
+                        <GradientText className='text-[#D9D9D9] font-neuehaas text-[1.2rem]'>
+                            {footerLinks[0].title}
+                        </GradientText>
+                        <div className='flex flex-col items-start justify-start gap-1 mt-3'>
+                            {footerLinks[0].items.map((link, id) => (
+                                <Link
+                                    key={id}
+                                    href={link.link}
+                                    className='text-[#8F8F8F] font-neuehaas  hover:underline hover:underline-offset-4'
+                                >
+                                    {link.linkName}
+                                </Link>
+                            ))}
+                        </div>
+                    </div>
+                    <div className='flex flex-col items-end justify-start'>
+                        <GradientText className='text-[#D9D9D9] font-neuehaas text-[1.2rem]'>
+                            {footerLinks[1].title}
+                        </GradientText>
+                        <div className='flex flex-col items-end justify-start gap-1 mt-3'>
+                            {footerLinks[1].items.map((link, id) => (
+                                <Link
+                                    key={id}
+                                    href={link.link}
+                                    className='text-[#8F8F8F] font-neuehaas  hover:underline hover:underline-offset-4'
+                                >
+                                    {link.linkName}
+                                </Link>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+                <div className='w-full md:hidden flex items-center justify-center'>
+                    <div className='flex flex-col items-center justify-center'>
+                        <GradientText className='text-[#D9D9D9] font-neuehaas text-[1.2rem]'>
+                            {footerLinks[2].title}
+                        </GradientText>
+                        <div className='flex flex-col items-center justify-center gap-1 mt-3'>
+                            {footerLinks[2].items.map((link, id) => (
+                                <Link
+                                    key={id}
+                                    href={link.link}
+                                    className='text-[#8F8F8F] font-neuehaas  hover:underline hover:underline-offset-4'
+                                >
+                                    {link.linkName}
+                                </Link>
+                            ))}
+                        </div>
+                    </div>
                 </div>
             </div>
         </motion.div>

@@ -28,12 +28,14 @@ const Heading = () => {
         stiffness: 100, // Adjust the stiffness of the spring (higher is snappier)
         damping: 10, // Controls how the spring settles (lower is more oscillatory)
     }}
-    className="w-full"
+    className="w-full px-7"
   >
-    <p className="text-[4rem] pb-2 leading-[4.5rem] text-center text-[#d9d9d9] font-neuehaas font-bold">
-      Achieve Your <GradientText>Financial Milestones</GradientText>
+    <p className="text-[2.5rem] md:text-[4rem] pb-2 md:leading-[4.5rem] text-center text-[#d9d9d9] font-neuehaas font-bold text-nowrap">
+      Achieve Your{" "}
+      <br className="md:hidden" />
+      <GradientText>Financial Milestones</GradientText>
     </p>
-    <p className="text-center leading-[1.5rem] text-[#8F8F8F] text-[1.5rem] font-ttc font-medium ">
+    <p className="text-center leading-[1.5rem] text-[#8F8F8F] text-[1.35rem] md:text-[1.5rem] font-ttc font-medium ">
       Take the first step with Guardeer Funding. Your journey toward financial
       <br />
       success begins here!
@@ -73,10 +75,10 @@ const FinancialMilestoneCarousel = () => {
   }, []);
 
   return (
-    <div className="w-full mt-36">
+    <div className="w-full mt-10 md:mt-36">
       <Heading />
       
-      <div className="flex items-center justify-end gap-8 px-8">
+      <div className="hidden md:flex items-center justify-end gap-8 px-8">
         <button className="text-[2.5rem] text-[#6B6B6B] hover:text-white">
           <BsChevronLeft />
         </button>
@@ -84,6 +86,7 @@ const FinancialMilestoneCarousel = () => {
           <BsChevronRight />
         </button>
       </div>
+      
       <motion.div 
         ref={ref}
         initial={{ transform: "translateY(60px)", opacity: 0 }}
@@ -93,21 +96,21 @@ const FinancialMilestoneCarousel = () => {
             stiffness: 100, // Adjust the stiffness of the spring (higher is snappier)
             damping: 10, // Controls how the spring settles (lower is more oscillatory)
         }} 
-        className="w-full mt-10 py-10 overflow-hidden flex items-center justify-center gap-[1.8rem] h-[18rem]"
+        className="w-full mt-10 py-10 overflow-hidden flex items-center justify-center gap-[1.8rem] h-[24rem]"
       >
       <Swiper
           ref={swiperRef}
           autoplay={{
-            delay: 0,
+            delay: 500,
             disableOnInteraction: true,
           }}
-          speed={1000}
+          speed={1500}
           slidesPerView={4}
           spaceBetween={30}
           freeMode={true}
           loop={true}
           modules={[Autoplay]}
-          className="w-full"
+          className="w-full h-[22rem]"
         >
         {arr.map((_, id) => (
           <SwiperSlide

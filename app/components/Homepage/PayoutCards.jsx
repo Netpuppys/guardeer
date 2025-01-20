@@ -1,14 +1,16 @@
 import GradientText from "../ui/GradientText";
 import React from "react";
 import payoutBanner from "../../../public/background/payoutBanner2.png";
+import payoutBannerMobile from "../../../public/background/payoutBannerMobile.png";
 import Image from "next/image";
 import { BsArrowRight } from "react-icons/bs";
-import profitSplit from "../../../public/icons/profitSplit2.png";
+import profitSplit2 from "../../../public/icons/profitSplit2.png";
+import profitSplit from "../../../public/icons/profitSplit.png";
 import objectives from "../../../public/icons/objectives2.png";
 import scaling from "../../../public/icons/scaling.png";
-import challenge from "../../../public/icons/challenge.png";
+import fundedTraders from "../../../public/icons/fundedTraders.png";
 import biWeekly from "../../../public/icons/biWeekly.png";
-import capital from "../../../public/icons/capital.png";
+import dailyPayouts from "../../../public/icons/dailyPayouts.png";
 import placeholder from "../../../public/delete/placeholder.png";
 import countPayouts from "../../../public/icons/countPayouts.png"
 import instantPayouts from "../../../public/icons/instantPayouts.png"
@@ -26,7 +28,7 @@ const cards = [
         Up to 90% <span className="text-[#E5CD7C]">Profit Split</span>
       </>
     ),
-    icon: profitSplit,
+    icon: profitSplit2,
     description: [
       "Earn Up To 90% Of Your Profits With Our Flexible Structure.",
       "Utilize Add-Ons To Maximize Your Earnings Potential.",
@@ -82,31 +84,28 @@ const cardsArray = [
   {
       icon: tradingPlatform,
       color: "#E5CD7C",
-      title: <>Choose Your <span className="text-[#E5CD7C] font-semibold">Challenge</span></>,
+      title: <>Advanced <span className="text-[#E5CD7C] font-semibold">Trading Platforms</span></>,
       points: [
-          "Pick from 1-step, 2-step, or 3-step challenge accounts.",
-          "Match the challenge to your risk tolerance and trading style.",
-          "Select a capital size that aligns with your trading goals."
+          "Pro platforms with advanced charting and fast execution.",
+          "Customizable tools for your strategy."
       ]
   },
   {
       icon: marketAccess,
       color: "#0EC0C8",
-      title: <>Conquer Your <span className="text-[#0EC0C8] font-semibold">Objectives</span></>,
+      title: <>Expansive <span className="text-[#0EC0C8] font-semibold">Market Access</span></>,
       points: [
-          "Meet clear objectives within a set timeframe.",
-          "Refine your trading strategies.",
-          "Prove your skills and dominate the market."
+          "Trade forex, commodities, indices, and crypto.",
+          "Diversify across multiple assets."
       ]
   },
   {
       icon: bestExecution,
       color: "#E5CD7C",
-      title: <>Secure Funded <span className="text-[#E5CD7C] font-semibold">Capital</span></>,
+      title: <>Tight Spreads <span className="text-[#E5CD7C] font-semibold">& Best Execution</span></>,
       points: [
-          "Gain access to a substantial pool of funded capital.",
-          "Turn virtual successes into real-world profits.",
-          "Experience the excitement of trading with real stakes."
+          "Ultra-low spreads and fast execution.",
+          "Precision with reduced slippage."
       ]
   },
 ]
@@ -127,55 +126,86 @@ const TopBanner = () => {
           stiffness: 100, // Adjust the stiffness of the spring (higher is snappier)
           damping: 10, // Controls how the spring settles (lower is more oscillatory)
       }}
-      className="px-12 py-14 rounded-[2.2rem] overflow-hidden bg-[#1D1E21] relative"
+      className="w-full px-6 md:px-12 py-14 rounded-[2.2rem] overflow-hidden bg-[#1D1E21] relative"
     >
         <Image
           src={payoutBanner}
-          className="absolute top-0 left-0 w-full h-full object-cover z-0"
+          className="absolute top-0 left-0 w-full h-full object-cover z-0 hidden md:block"
+          alt=""
+        />
+
+        <Image
+          src={payoutBannerMobile}
+          className="absolute top-0 left-0 w-full h-full object-cover z-0 md:hidden"
           alt=""
         />
 
         <div className="relative z-10 flex flex-col items-end justify-center">
-          <h3 className="text-[clamp(3.5rem,4.3vw,5rem)] font-bold leading-[5.2rem] mb-4 text-right text-nowrap">
+          <h3 className="text-[clamp(1.5rem,9vw,3.5rem)] md:text-[clamp(3.5rem,4.3vw,5rem)] font-bold md:leading-[5.2rem] mb-4 text-center md:text-right md:text-nowrap">
             <GradientText>Why settle for promises</GradientText>
             <br />
             when you can have real capital?
           </h3>
-          <p className="text-[#8F8F8F] text-[clamp(1.1rem,1.4vw,1.8rem)] max-w-[60%] text-right">
+          <p className="text-[#8F8F8F] text-[clamp(1.1rem,5.4vw,2.2rem)] md:text-[clamp(1.1rem,1.4vw,1.8rem)] px-5 md:px-0 md:max-w-[60%] text-justify md:text-right">
             Funding Traders With Real Capital Isn't Just A Catchy Pitch - It's
             The Foundation Of A Partnership Built On Trust And Shared Success.
           </p>
         </div>
 
-        <div className="flex items-end justify-between mt-14">
+        <div className="flex items-end flex-col-reverse md:flex-row justify-between mt-14">
           {/* CTA Button */}
-          <button className="mt-8 relative z-10 hover:shadow-yellow-glow group transition-all border-[1.3px] border-[#E5CD7C] h-[4.3rem] px-16 flex items-center justify-center gap-5 rounded-full ">
-            <span className="font-helvetica text-[#f4f4f4] text-[clamp(1.1rem,1.4vw,1.8rem)] font-extrabold text-nowrap">
-              Discover more about daily payouts
+          <button className="mt-8 relative z-10 hover:shadow-yellow-glow group transition-all border-[1.3px] border-[#E5CD7C] h-[6rem] md:h-[4.3rem] w-full md:w-fit px-10 md:px-16 flex items-center justify-between md:justify-center gap-5 rounded-[2rem] md:rounded-full ">
+            <span className="font-helvetica text-[#f4f4f4] text-[clamp(1.1rem,5vw,1.8rem)] md:text-[clamp(1.1rem,1.4vw,1.8rem)] font-extrabold text-nowrap text-left md:text-center">
+              Discover more{" "}
+              <br className="md:hidden" />
+              about daily payouts
             </span>
             <span className="text-[2rem]">
               <BsArrowRight />
             </span>
           </button>
 
-          <div className="flex flex-col items-end gap-6 text-sm md:text-base relative z-10">
-            <div className="flex items-center gap-10">
-              <p className="font-ttc text-[1.7rem] tracking-[0.03444rem] text-right text-white ">
+          {/* desktop */}
+          <div className="w-full hidden md:flex flex-col items-start md:items-end gap-6 text-sm md:text-base relative z-10">
+            <div className="flex flex-row-reverse md:flex-row items-center gap-2 md:gap-10">
+              <p className="font-ttc text-[1rem] md:text-[1.7rem] tracking-[0.03444rem] text-left md:text-right text-white text-nowrap">
                 Instant Payouts At Your Convenience
               </p>
-              <Image src={instantPayouts} className="h-10 w-10" alt="" />
+              <Image src={instantPayouts} className=" h-7 object-contain md:h-10 w-10" alt="" />
             </div>
-            <div className="flex items-center gap-10">
-              <p className="font-ttc text-[1.7rem] tracking-[0.03444rem] text-right text-white ">
+            <div className="flex flex-row-reverse md:flex-row items-center gap-2 md:gap-10">
+              <p className="font-ttc text-[1rem] md:text-[1.7rem] tracking-[0.03444rem] text-left md:text-right text-white text-nowrap ">
                 Payouts You Can Always Count On
               </p>
               <Image src={countPayouts} className="h-10 w-10" alt="" />
             </div>
-            <div className="flex items-center gap-10">
-              <p className="font-ttc text-[1.7rem] tracking-[0.03444rem] text-right text-white ">
+            <div className="flex flex-row-reverse md:flex-row items-center gap-2 md:gap-10">
+              <p className="font-ttc text-[1rem] md:text-[1.7rem] tracking-[0.03444rem] text-left md:text-right text-white text-nowrap ">
                 Protected From Unpredictable Market Swings
               </p>
               <Image src={marketSwings} className="h-10 w-10" alt="" />
+            </div>
+          </div>
+
+          {/* mobile */}
+          <div className="w-full flex md:hidden flex-col items-start md:items-end gap-6 text-sm md:text-base relative z-10">
+            <div className="flex flex-row-reverse md:flex-row items-center gap-2 md:gap-10">
+              <p className="font-ttc text-[1rem] md:text-[1.7rem] tracking-[0.03444rem] text-left md:text-right text-white text-nowrap">
+                Daily Payouts
+              </p>
+              <Image src={dailyPayouts} className="h-6 w-6 object-contain md:h-10 md:w-10" alt="" />
+            </div>
+            <div className="flex flex-row-reverse md:flex-row items-center gap-2 md:gap-10">
+              <p className="font-ttc text-[1rem] md:text-[1.7rem] tracking-[0.03444rem] text-left md:text-right text-white text-nowrap ">
+                No Hidden Rules
+              </p>
+              <Image src={profitSplit} className="h-6 w-6 object-contain md:h-10 md:w-10" alt="" />
+            </div>
+            <div className="flex flex-row-reverse md:flex-row items-center gap-2 md:gap-10">
+              <p className="font-ttc text-[1rem] md:text-[1.7rem] tracking-[0.03444rem] text-left md:text-right text-white text-nowrap ">
+                Real Capital, Real Opportunities
+              </p>
+              <Image src={fundedTraders} className="h-6 w-6 object-contain md:h-10 md:w-10" alt="" />
             </div>
           </div>
         </div>
@@ -199,16 +229,16 @@ const AnimatedCards = () => {
           stiffness: 100, // Adjust the stiffness of the spring (higher is snappier)
           damping: 10, // Controls how the spring settles (lower is more oscillatory)
       }}
-      className="w-full flex items-center justify-center gap-16 mt-14"
+      className="w-full flex flex-col md:flex-row items-center justify-center gap-10 md:gap-16 mt-14"
     >
         {cards.map((item, id) => (
           <div
             key={id}
             style={{ border: `1px solid ${item.color}` }}
-            className={`w-[calc(25%-3rem)] h-[26rem] flex flex-col p-6 items-center justify-start gap-4 bg-[#313131] bg-opacity-70 rounded-2xl backdrop-blur-lg shadow-[0px_1.491px_10.597px_0px_rgba(255,252,0,0.80)_inset] even:shadow-[0px_1.491px_10.597px_0px_#0EC0C8_inset]`}
+            className={`w-full md:w-[calc(25%-3rem)] h-[26rem] flex flex-col p-6 items-center justify-start gap-4 bg-[#313131] bg-opacity-70 rounded-2xl backdrop-blur-lg shadow-[0px_1.491px_10.597px_0px_rgba(255,252,0,0.80)_inset] even:shadow-[0px_1.491px_10.597px_0px_#0EC0C8_inset]`}
           >
             <Image src={item.icon} className="h-[3.5rem] w-[3.5rem]" alt="" />
-            <p className=" text-[clamp(1.1rem,1.4vw,1.8rem)] font-neuehaas">
+            <p className="text-[clamp(1.1rem,7.4vw,2rem)] md:text-[clamp(1.1rem,1.4vw,1.8rem)] font-medium md:font-normal font-neuehaas text-nowrap">
               {item.title}
             </p>
             <div
@@ -228,7 +258,7 @@ const AnimatedCards = () => {
               {item.description.map((point, id) => (
                 <li
                   key={id}
-                  className="text-[clamp(10px,1vw,20px)] text-[#ededed] leading-[1.9rem] font-neuehaas font-normal"
+                  className="text-[clamp(0.8rem,4.5vw,1.5rem)] md:text-[clamp(10px,1vw,20px)] text-[#ededed] leading-[1.9rem] font-neuehaas font-normal"
                 >
                   {point}
                 </li>
@@ -256,9 +286,9 @@ const AnimatedImage = () => {
           stiffness: 100, // Adjust the stiffness of the spring (higher is snappier)
           damping: 10, // Controls how the spring settles (lower is more oscillatory)
       }}
-      className="w-full px-40 h-fit py-[12rem]"
+      className="w-full md:px-40 h-fit py-28 md:py-[12rem] flex items-center justify-center overflow-hidden"
     >
-        <Image src={placeholder} className="w-full h-fit" alt="" />
+        <Image src={placeholder} className="md:w-full w-fit object-cover h-[18rem] min-h-[18rem] md:h-fit" alt="" />
     </motion.div>
   )
 }
@@ -279,13 +309,14 @@ const AnimatedHeading = () => {
           stiffness: 100, // Adjust the stiffness of the spring (higher is snappier)
           damping: 10, // Controls how the spring settles (lower is more oscillatory)
       }}
-      className="w-full flex flex-col items-center justify-start"
+      className="w-full flex flex-col items-center justify-start px-7"
     >
-      <p className="font-helvetica text-[#d9d9d9] text-[clamp(3rem,3.3vw,4rem)] font-bold text-center">
+      <p className="font-helvetica text-[#d9d9d9] text-[clamp(1.5rem,7.3vw,2.5rem)] md:text-[clamp(3rem,3.3vw,4rem)] font-bold text-center text-nowrap">
           Trade with Confidence,{" "}
+          <br className="md:hidden" />
           <GradientText>Succeed with Precision</GradientText>
         </p>
-        <p className="max-w-[66rem] text-center text-[#8F8F8F] font-neuehaas text-[1.36rem] ">
+        <p className="max-w-[66rem] md:text-center text-[#8F8F8F] font-neuehaas text-[1.36rem] pt-6 md:pt-0 text-justify">
           <span className="text-[#0EC0C8]">Guardeer</span> Funding knows a solid
           trading environment is key to success. That's why we offer two
           powerful platforms for traders who mean business.
@@ -314,19 +345,19 @@ const AnimatedBottomCards = () => {
           stiffness: 100, // Adjust the stiffness of the spring (higher is snappier)
           damping: 10, // Controls how the spring settles (lower is more oscillatory)
       }}
-      className="flex h-[28rem] items-center mt-10 justify-center gap-24"
+      className="flex w-full flex-col md:flex-row items-center mt-10 justify-center gap-10 md:gap-24"
     >
       {cardsArray.map((item, index) => (
       <div 
           key={index}
-          className="w-[calc(33%-4rem)] shadow-[0px_1.491px_10.597px_0px_rgba(255,252,0,0.80)_inset] even:shadow-[0px_1.491px_10.597px_0px_#0EC0C8_inset] h-full flex flex-col p-8 items-center justify-start gap-4 bg-[#313131] bg-opacity-70 rounded-2xl backdrop-blur-lg"
+          className="w-full md:w-[calc(33%-4rem)] shadow-[0px_1.491px_10.597px_0px_rgba(255,252,0,0.80)_inset] even:shadow-[0px_1.491px_10.597px_0px_#0EC0C8_inset] h-fit md:h-[22rem] flex flex-col p-8 items-center justify-start gap-4 bg-[#313131] bg-opacity-70 rounded-2xl backdrop-blur-lg"
       >
           <Image
               src={item.icon}
-              className="h-[4.5rem] w-[4.5rem]"
+              className="h-[3rem] object-contain md:h-[4.5rem] w-[4.5rem]"
               alt=""
           />
-          <p className=" text-[clamp(1.5rem,1.9vw,2.3rem)] font-neuehaas">
+          <p className="text-[clamp(1.3rem,1.9vw,2.3rem)] font-neuehaas text-nowrap">
             {item.title}
           </p>
           <div style={{ background: item.color }} className={`w-full h-[1.5px] relative`}>
@@ -351,7 +382,7 @@ const AnimatedBottomCards = () => {
 const PayoutCards = () => {
 
   return (
-    <div className="w-full mt-[9rem]">
+    <div className="w-full mt-10 md:mt-[9rem]">
       <TopBanner />
       <AnimatedCards />
       <AnimatedImage />

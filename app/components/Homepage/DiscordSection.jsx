@@ -22,16 +22,18 @@ const DiscordSection = () => {
             stiffness: 100, // Adjust the stiffness of the spring (higher is snappier)
             damping: 10, // Controls how the spring settles (lower is more oscillatory)
         }}
-        className='w-full flex items-center justify-center h-[25rem] gap-6'
+        className='w-full flex flex-col md:flex-row items-center justify-center md:h-[25rem] gap-6'
     >
-        <div className='overflow-hidden w-[70%] h-full rounded-3xl bg-yellow-blue-gradient p-[2px]'>
-            <div className='w-full h-full rounded-3xl bg-black flex items-center justify-center'>
-                <div className='h-full w-fit flex flex-col items-start justify-center pl-10 py-10'>
-                    <p className='text-[clamp(1.7rem,2.2vw,3rem)] font-neuehaas text-[#ebebeb] text-nowrap'>
+        {/* discord section */}
+        <div className='overflow-hidden w-full md:w-[70%] h-full rounded-3xl bg-yellow-blue-gradient p-[2px]'>
+            <div className='w-full h-full rounded-3xl bg-black flex items-center justify-center px-7'>
+                <div className='h-full w-full md:w-fit flex flex-col items-center md:items-start justify-center md:pl-10 py-10'>
+
+                    <p className='text-[clamp(1.7rem,2.2vw,3rem)] font-neuehaas text-[#ebebeb] text-center md:text-left text-wrap md:text-nowrap'>
                         Our{" "}<GradientText>close-knit community</GradientText>{" "}is always
-                        <br/>
+                        <br className='hidden md:block'/>
                         ready to support, and we organize
-                        <br/>
+                        <br className='hidden md:block'/>
                         regular events to keep things lively.
                     </p>
                     <Image
@@ -45,7 +47,7 @@ const DiscordSection = () => {
                         Join Our Discord
                     </button>
                 </div>
-                <div className='h-full w-2/3'>
+                <div className='h-full w-2/3 hidden md:block'>
                     <Image
                         src={discordLogo}
                         className='h-full w-full object-cover'
@@ -54,8 +56,10 @@ const DiscordSection = () => {
                 </div>
             </div>
         </div>
-        <div className='overflow-hidden w-[30%] h-full rounded-3xl bg-yellow-blue-gradient p-[2px]'>
-            <div className='w-full h-full rounded-3xl bg-black flex flex-col items-center justify-center'>
+
+        {/* socials section */}
+        <div className='overflow-hidden w-full md:w-[30%] h-full rounded-3xl bg-yellow-blue-gradient p-[2px]'>
+            <div className='w-full h-full px-7 py-10 md:py-0 rounded-3xl bg-black flex flex-col items-center justify-center'>
                 <p className='text-center text-nowrap text-[#ebebeb] text-[clamp(1.7rem,2vw,3rem)] leading-[2.6rem] font-neuehaas '>
                     Join the Next Generation of
                     <br/>

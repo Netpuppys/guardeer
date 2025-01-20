@@ -23,12 +23,16 @@ const Heading = () => {
         stiffness: 100, // Adjust the stiffness of the spring (higher is snappier)
         damping: 10, // Controls how the spring settles (lower is more oscillatory)
     }}
-    className="w-full"
+    className="w-full px-12 md:px-0"
   >
-    <p className="text-[4rem] pb-2 leading-[4.5rem] text-center text-[#d9d9d9] font-neuehaas font-bold">
-      Real Trading. <GradientText>Real Talent.</GradientText> Real Results.
+    <p className="text-[3rem] md:text-[4rem] pb-2 leading-[4.5rem] text-left md:text-center text-[#d9d9d9] font-neuehaas font-bold">
+      Real Trading.{" "}
+      <br className="block md:hidden"/>
+      <GradientText>Real Talent.</GradientText>{" "}
+      <br className="block md:hidden"/>
+      Real Results.
     </p>
-    <p className="text-center leading-[1.5rem] text-[#8F8F8F] text-[1.5rem] font-ttc font-medium ">
+    <p className="text-left md:text-center leading-[1.5rem] text-[#8F8F8F] text-[1.5rem] font-ttc font-medium ">
       The Proof Is in the Profits
     </p>
   </motion.div>
@@ -75,11 +79,12 @@ const RealTradingCarousel = () => {
       swiperElement.removeEventListener("mouseleave", handleMouseLeave);
     };
   }, []);
+
   return (
-    <div className="w-full mt-36">
+    <div className="w-full mt-20 md:mt-36">
       <Heading />
       
-      <div className="flex items-center justify-end gap-8 px-8">
+      <div className="hidden md:flex items-center justify-end gap-8 px-8">
         <button className="text-[2.5rem] text-[#6B6B6B] hover:text-white">
           <BsChevronLeft />
         </button>
@@ -87,6 +92,7 @@ const RealTradingCarousel = () => {
           <BsChevronRight />
         </button>
       </div>
+
       <motion.div
         ref={ref}
         initial={{ transform: "translateY(60px)", opacity: 0 }}
@@ -115,7 +121,7 @@ const RealTradingCarousel = () => {
           {card.map((_, id) => (
             <SwiperSlide
               key={id}
-              className={`w-full py-10 group h-full cursor-pointer `}
+              className={`min-w-80 md:w-full py-10 group h-80 md:h-full cursor-pointer `}
             >
               <div
                 className={`w-full h-full ${
@@ -130,6 +136,15 @@ const RealTradingCarousel = () => {
           ))}
         </Swiper>
       </motion.div>
+
+      <div className="flex md:hidden items-center justify-end gap-8 px-8">
+        <button className="text-[2.5rem] text-[#6B6B6B] hover:text-white">
+          <BsChevronLeft />
+        </button>
+        <button className="text-[2.5rem] text-[#B4B4B4] hover:text-white">
+          <BsChevronRight />
+        </button>
+      </div>
     </div>
   );
 };

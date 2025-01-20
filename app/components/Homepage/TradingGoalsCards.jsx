@@ -150,18 +150,18 @@ const BottomBar = () => {
                 stiffness: 100, // Adjust the stiffness of the spring (higher is snappier)
                 damping: 10, // Controls how the spring settles (lower is more oscillatory)
             }}
-            className="mt-12 border border-white rounded-2xl w-full py-8 px-20 flex items-center justify-between"
+            className="mt-12 border border-white rounded-2xl w-full py-8 px-10 md:px-20 flex flex-col md:flex-row items-center justify-center md:justify-between"
         >
-            <div className="">
-                <p className="text-[#0EC0C8] text-[2.4rem] font-bold font-helvetica">
+            <div className="text-center md:text-left">
+                <p className="text-[#0EC0C8] text-[2rem] md:text-[2.4rem] font-bold font-helvetica">
                     Ready to Make Winning Trades?
                 </p>
-                <p className="text-[#8F8F8F] text-[1.5rem] font-medium font-ttc">
+                <p className="text-[#8F8F8F] pt-4 md:pt-0 text-[1.25rem] md:text-[1.5rem] font-medium font-ttc">
                     Compare Challenges and Account Sizes to Amplify Your Strategy
                 </p>
             </div>
             <button
-                className="bg-yellow-blue-gradient font-ttc font-semibold w-[16rem] h-14 rounded-full flex items-center justify-center text-black text-xl "
+                className="bg-yellow-blue-gradient mt-8 md:mt-0 font-ttc font-semibold w-[13rem] md:w-[16rem] h-12 md:h-14 rounded-full flex items-center justify-center text-black md:text-xl "
             >
                 Click to Compare
             </button>
@@ -176,7 +176,8 @@ const TradingGoalsCards = () => {
     });
 
   return (
-    <div className="w-full mt-40">
+    <div className="w-full mt-10 md:mt-40">
+        {/* top banner */}
         <motion.div 
             ref={ref}
             initial={{ transform: "translateY(60px)", opacity: 0 }}
@@ -186,30 +187,31 @@ const TradingGoalsCards = () => {
                 stiffness: 100, // Adjust the stiffness of the spring (higher is snappier)
                 damping: 10, // Controls how the spring settles (lower is more oscillatory)
             }}
-            className="relative w-full rounded-[2rem] flex items-end justify-end bg-[#1D1E21]"
+            className="relative w-full py-4 rounded-[2rem] flex flex-col-reverse md:flex-row items-end justify-end bg-black md:bg-[#1D1E21]"
         >
             <Image
                 src={tradingGoalsBackground}
-                className="w-[45%] h-fit absolute bottom-0 left-0"
+                className="w-full scale-150 md:scale-100 md:w-[45%] h-fit md:absolute bottom-0 left-0"
                 alt=""
             />
-            <div className="w-[55%] px-16 py-8 flex flex-col items-end justify-start gap-6">
-                <p className="text-[clamp(10px,7.5vw,50px)] md:text-[clamp(10px,3.5vw,100px)] text-right font-bold font-neuehaas leading-[4vw]">
+
+            <div className="w-full md:w-[55%] px-4e md:px-16 py-4 pb-10 md:pb-4 md:py-8 flex flex-col items-end justify-start gap-6">
+                <p className="text-[clamp(10px,8.5vw,50px)] md:text-[clamp(10px,3.5vw,100px)] text-left md:text-right font-bold font-neuehaas md:leading-[4vw]">
                     Achieve Your Trading Goals with the{" "}
-                    <span className="text-text-light-gray font-ttc from-blue-green-start to-blue-green-end bg-gradient-to-r transition-all inline-block text-transparent bg-clip-text">Right Challenge</span>
+                    <span className="text-text-light-gray text-[clamp(10px,10vw,50px)] md:text-inherit font-ttc from-blue-green-start to-blue-green-end bg-gradient-to-r transition-all inline-block text-transparent bg-clip-text">Right Challenge</span>
                 </p>
-                <p className="text-[#8F8F8F] text-[clamp(10px,5vw,50px)] md:text-[clamp(10px,2vw,100px)] font-neuehaas text-right">
+                <p className="text-[#8F8F8F] text-[clamp(10px,5vw,50px)] md:text-[clamp(10px,2vw,100px)] font-neuehaas text-left md:text-right">
                     3 Challenge Types, Infinite Trading Possibilities
                 </p>
                 <div className="flex items-start justify-start flex-wrap gap-x-8 gap-y-4">
                     {pointsArray.map((item, index) => (
                         <div
                             key={index}
-                            className="w-[calc(50%-1rem)] flex items-center justify-start gap-3"
+                            className="w-full md:w-[calc(50%-1rem)] flex items-center justify-start gap-3"
                         >
                             <Image
                                 src={item.icon}
-                                className="w-8 h-8"
+                                className="w-6 h-6 md:w-8 md:h-8"
                                 alt=""
                             />
                             <p className="font-ttc text-white text-[clamp(10px,4.5vw,50px)] md:text-[clamp(10px,1.3vw,100px)] tracking-[0.03156rem]">
@@ -221,9 +223,9 @@ const TradingGoalsCards = () => {
             </div>
         </motion.div>
 
-        <div className="flex h-[29rem] items-center mt-10 justify-center gap-24">
+        <div className="flex md:h-[29rem] flex-col md:flex-row items-center mt-10 justify-center gap-6 md:gap-24">
             {cardsArray.map((item, index) => (
-                <div key={index} className="w-[calc(33%-4rem)] h-full">
+                <div key={index} className="w-full md:w-[calc(33%-4rem)] h-full">
                     <Cards item={item} index={index} />
                 </div>
             ))}

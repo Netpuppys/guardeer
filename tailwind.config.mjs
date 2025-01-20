@@ -36,7 +36,7 @@ export default {
         "show-search": "show-search 400ms",
         "hide-search": "hide-search 400ms",
         "slide-left" : "slide-left 400ms ease",
-        "slide-in": "slide-in 800ms ease"
+        "slide-in": "slide-in 800ms ease",
       },
       keyframes: {
         "show-search": {
