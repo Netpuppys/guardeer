@@ -53,21 +53,21 @@ const AnimatedCards = () => {
           stiffness: 100, // Adjust the stiffness of the spring (higher is snappier)
           damping: 10, // Controls how the spring settles (lower is more oscillatory)
       }}
-      className="px-2 md:px-0 md:pl-10 pb-4 w-fit flex items-end gap-5"
+      className="px-6 md:px-0 md:pl-10 pb-4 w-fit flex items-end gap-5"
     >
         {/* big card */}
-        <div className="rounded-2xl backdrop-blur-xl bg-black bg-opacity-40 z-10 max-w-[32rem] p-6">
-          <h3 className="text-[#D9D9D9] font-neuehaas text-5xl font-bold text-wrap">
-            Payouts from the first trade.
+        <div className="rounded-[1.6rem] backdrop-blur-lg bg-black bg-opacity-30 z-10 max-w-[32rem] py-10 px-7 md:px-6 md:py-6">
+          <h3 className="text-[#D9D9D9] font-neuehaas text-5xl font-bold text-wrap md:pb-0">
+            Trade. Earn. Repeat.
           </h3>
-          <h3 className="text-[#E5CD7C] font-neuehaas text-4xl pt-2 font-semibold">
-            No hidden rules.
+          <h3 className="text-[#E5CD7C] font-neuehaas text-4xl pt-4 md:pt-2 font-semibold ">
+            No Hidden Rules.
           </h3>
-          <div className="w-full flex items-center justify-between">
-            <h4 className="max-w-80 font-neuehaas text-wrap text-xl">
+          <div className="w-full flex flex-col md:flex-row items-end md:items-center justify-between mt-2 md:mt-0">
+            <h4 className="md:max-w-80 w-full text-left font-neuehaas pr-10 md:pr-0 text-wrap text-2xl text-[#B7B7B7]">
               The only prop firm that funds you with real capital.
             </h4>
-            <button className="rounded-full border-[1.5px] border-[#757575] border-l-[#04C5D2] hover:border-l-[#757575] hover:border-[#04C5D2] transition-all duration-500 aspect-square w-16 p-2 hover:rotateBorderL">
+            <button className="rounded-full border-[1.5px] border-[#757575] border-l-[#04C5D2] hover:border-l-[#757575] hover:border-[#04C5D2] transition-all duration-500 aspect-square w-20 md:w-16 p-2 hover:rotateBorderL">
               <div className="w-full h-full rounded-full bg-[#04C5D2] flex items-center justify-center text-black text-xl ">
                 <BsArrowRight />
               </div>
@@ -175,7 +175,7 @@ const Banner = () => {
   }, []);
   return (
     <div className="w-full flex items-end justify-between h-screen md:h-[calc(100vh-10.5rem)] min-h-[40rem] relative md:rounded-[1.3rem] md:bg-yellow-blue-gradient md:p-[0.5px] overflow-hidden">
-      <div className="absolute w-full h-full top-0 left-0 object-cover md:rounded-[1.3rem] p-[1px] overflow-hidden">
+      <div className="absolute w-full h-full top-0 md:left-0 object-cover md:rounded-[1.3rem] p-[1px] overflow-hidden flex items-center justify-start md:justify-center">
         <Image
           src={backgroundImage}
           className="w-full h-full opacity-50 md:opacity-100 object-cover md:rounded-[1.3rem]"
