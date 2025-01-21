@@ -15,6 +15,7 @@ import objectives from "../../../public/icons/objectives.png"
 import capital from "../../../public/icons/capital.png"
 import { motion } from "motion/react"
 import { useInView } from "react-intersection-observer";
+import GradientText from "../ui/GradientText"
 
 const pointsArray = [
     {
@@ -55,7 +56,7 @@ const cardsArray = [
     {
         icon: challenge,
         color: "#E5CD7C",
-        title: <>Choose Your <span className="text-[#E5CD7C] font-semibold">Challenge</span></>,
+        title: <>Choose Your<span className="text-[#E5CD7C] font-semibold text-[clamp(1.6rem,6.1vw,2.3rem)] md:text-[clamp(1.6rem,2.5vw,2.5rem)] md:ml-3">Challenge</span></>,
         points: [
             "Pick from 1-step, 2-step, or 3-step challenge accounts.",
             "Match the challenge to your risk tolerance and trading style.",
@@ -66,7 +67,7 @@ const cardsArray = [
     {
         icon: objectives,
         color: "#0EC0C8",
-        title: <>Conquer Your <span className="text-[#0EC0C8] font-semibold">Objectives</span></>,
+        title: <>Conquer Your <span className="text-[#0EC0C8] font-semibold text-[clamp(1.6rem,6.1vw,2.3rem)] md:text-[clamp(1.6rem,2.5vw,2.5rem)] md:ml-3">Objectives</span></>,
         points: [
             "Meet clear objectives within a set timeframe.",
             "Refine your trading strategies.",
@@ -77,7 +78,7 @@ const cardsArray = [
     {
         icon: capital,
         color: "#E5CD7C",
-        title: <>Secure Funded <span className="text-[#E5CD7C] font-semibold">Capital</span></>,
+        title: <>Secure Funded <span className="text-[#E5CD7C] font-semibold text-[clamp(1.6rem,6.1vw,2.3rem)] md:text-[clamp(1.6rem,2.5vw,2.5rem)] md:ml-3">Capital</span></>,
         points: [
             "Gain access to a substantial pool of funded capital.",
             "Turn virtual successes into real-world profits.",
@@ -104,32 +105,32 @@ const Cards = ({ item, index }) => {
                 stiffness: 100, // Adjust the stiffness of the spring (higher is snappier)
                 damping: 10, // Controls how the spring settles (lower is more oscillatory)
             }}
-            className={`w-full h-full flex flex-col p-8 items-center justify-start gap-4 bg-[#313131] bg-opacity-70 rounded-2xl backdrop-blur-lg
-                ${index % 2 === 0? "shadow-[0px_1.491px_10.597px_0px_rgba(255,252,0,0.80)_inset]" : "shadow-[0px_1.491px_10.597px_0px_#0EC0C8_inset]"}
-            `}
-            >
-            <Image
-                src={item.icon}
-                className="h-[4.5rem] w-[4.5rem]"
-                alt=""
-            />
-            <p className=" text-[clamp(1.5rem,1.9vw,2.2rem)] font-neuehaas">
-                {item.title}
-            </p>
-            <div style={{ background: item.color }} className={`w-full h-[1.5px] relative`}>
-                <div style={{ background: item.color }} className="absolute w-3 aspect-square rounded-full top-0 left-0 -translate-y-1/2"></div>
-                <div style={{ background: item.color }} className="absolute w-3 aspect-square rounded-full top-0 right-0 -translate-y-1/2"></div>
+            className={`w-full h-full flex flex-col items-center justify-start gap-2 bg-yellow-blue-gradient p-[1px] rounded-2xl backdrop-blur-lg `}
+        >
+            <div className="w-full h-full flex flex-col p-6 items-center justify-start gap-2 bg-black bg-opacity-85 rounded-2xl backdrop-blur-lg">
+                <Image
+                    src={item.icon}
+                    className="h-[4.5rem] w-[4.5rem]"
+                    alt=""
+                />
+                <p className="text-[clamp(1.5rem,6vw,2.2rem)] md:text-[clamp(1.5rem,1.8vw,2.2rem)] text-nowrap font-neuehaas">
+                    {item.title}
+                </p>
+                <div style={{ background: item.color }} className={`w-[90%] min-h-[1.5px] h-[1.5px] relative`}>
+                    <div style={{ background: item.color }} className="absolute w-3 aspect-square rounded-full top-0 left-0 -translate-y-1/2"></div>
+                    <div style={{ background: item.color }} className="absolute w-3 aspect-square rounded-full top-0 right-0 -translate-y-1/2"></div>
+                </div>
+                <ul className="list-disc w-full text-left pt-4 px-4 md:pl-10 md:pr-6">
+                    {item.points.map((point, id) => (
+                        <li
+                            key={id}
+                            className="text-[clamp(1rem,4.7vw,1.6rem)] md:text-[clamp(1rem,1.3vw,1.4rem)] text-[#c9c9c9] md:leading-[1.7rem] font-ttc font-normal pb-1 last:pb-0"
+                        >
+                            {point}
+                        </li>
+                    ))}
+                </ul>
             </div>
-            <ul className="list-disc w-full text-left pt-4 px-6">
-                {item.points.map((point, id) => (
-                    <li
-                        key={id}
-                        className="text-[clamp(1rem,1.4vw,1.6rem)] text-[#ededed] leading-[1.9rem] font-neuehaas font-normal"
-                    >
-                        {point}
-                    </li>
-                ))}
-            </ul>
         </motion.div>
     )
 }
@@ -150,10 +151,10 @@ const BottomBar = () => {
                 stiffness: 100, // Adjust the stiffness of the spring (higher is snappier)
                 damping: 10, // Controls how the spring settles (lower is more oscillatory)
             }}
-            className="mt-12 border border-white rounded-2xl w-full py-8 px-10 md:px-20 flex flex-col md:flex-row items-center justify-center md:justify-between"
+            className="mt-12 border-[1px] border-white border-opacity-70 rounded-2xl w-full py-8 px-10 md:px-20 flex flex-col md:flex-row items-center justify-center md:justify-between"
         >
             <div className="text-center md:text-left">
-                <p className="text-[#0EC0C8] text-[2rem] md:text-[2.4rem] font-bold font-helvetica">
+                <p className="text-[#0EC0C8] text-[2rem] md:text-[2.4rem] font-bold font-neuehaas">
                     Ready to Make Winning Trades?
                 </p>
                 <p className="text-[#8F8F8F] pt-4 md:pt-0 text-[1.25rem] md:text-[1.5rem] font-medium font-ttc">
@@ -176,7 +177,7 @@ const TradingGoalsCards = () => {
     });
 
   return (
-    <div className="w-full mt-10 md:mt-40">
+    <div className="w-full md:mt-20">
         {/* top banner */}
         <motion.div 
             ref={ref}
@@ -187,7 +188,7 @@ const TradingGoalsCards = () => {
                 stiffness: 100, // Adjust the stiffness of the spring (higher is snappier)
                 damping: 10, // Controls how the spring settles (lower is more oscillatory)
             }}
-            className="relative w-full py-4 rounded-[2rem] flex flex-col-reverse md:flex-row items-end justify-end bg-black md:bg-[#1D1E21]"
+            className="relative w-full py-4 rounded-[2rem] flex flex-col-reverse md:flex-row items-end gap-10 justify-end bg-black md:bg-[#1D1E21]"
         >
             <Image
                 src={tradingGoalsBackground}
@@ -195,12 +196,12 @@ const TradingGoalsCards = () => {
                 alt=""
             />
 
-            <div className="w-full md:w-[55%] px-4e md:px-16 py-4 pb-10 md:pb-4 md:py-8 flex flex-col items-end justify-start gap-6">
-                <p className="text-[clamp(10px,8.5vw,50px)] md:text-[clamp(10px,3.5vw,100px)] text-left md:text-right font-bold font-neuehaas md:leading-[4vw]">
+            <div className="w-full md:w-[55%] md:pr-16 py-4 pb-10 md:pb-4 md:py-8 flex flex-col items-end justify-start gap-6">
+                <p className="text-[clamp(10px,8.5vw,50px)] md:text-[clamp(10px,3.9vw,100px)] text-left md:text-right font-bold font-neuehaas md:leading-[4.5vw]">
                     Achieve Your Trading Goals with the{" "}
-                    <span className="text-text-light-gray text-[clamp(10px,10vw,50px)] md:text-inherit font-ttc from-blue-green-start to-blue-green-end bg-gradient-to-r transition-all inline-block text-transparent bg-clip-text">Right Challenge</span>
+                    <GradientText>Right Challenge</GradientText>
                 </p>
-                <p className="text-[#8F8F8F] text-[clamp(10px,5vw,50px)] md:text-[clamp(10px,2vw,100px)] font-neuehaas text-left md:text-right">
+                <p className="text-[#8F8F8F] text-[clamp(10px,5vw,50px)] md:text-[clamp(10px,1.7vw,100px)] font-neuehaas text-left md:text-right">
                     3 Challenge Types, Infinite Trading Possibilities
                 </p>
                 <div className="flex items-start justify-start flex-wrap gap-x-8 gap-y-4">
@@ -223,9 +224,9 @@ const TradingGoalsCards = () => {
             </div>
         </motion.div>
 
-        <div className="flex md:h-[29rem] flex-col md:flex-row items-center mt-10 justify-center gap-6 md:gap-24">
+        <div className="flex md:h-[26rem] flex-col md:flex-row items-center mt-10 justify-center gap-6 md:gap-24">
             {cardsArray.map((item, index) => (
-                <div key={index} className="w-full md:w-[calc(33%-4rem)] h-full">
+                <div key={index} className="w-full md:w-[calc(33.33333%-4rem)] h-full">
                     <Cards item={item} index={index} />
                 </div>
             ))}

@@ -111,13 +111,13 @@ const Footer = () => {
                         How does Guardeer Funding work?
                     </p>
                 </div>
-                <div className='w-full md:w-1/2 h-full hidden md:flex items-start justify-center md:gap-20'>
+                <div className='w-full md:w-1/2 h-full pt-3 hidden md:flex items-start justify-center md:gap-20'>
                     {footerLinks.map((item, index) => (
                         <div key={index} className='flex flex-col items-center justify-start'>
                             <p className='text-[#D9D9D9] font-neuehaas text-[1.2rem]'>
                                 {item.title}
                             </p>
-                            <div className='flex flex-col items-center justify-start gap-2 mt-6'>
+                            <div className='flex flex-col items-center justify-start gap-2 mt-4'>
                                 {item.items.map((link, id) => (
                                     <Link
                                         key={id}
@@ -131,6 +131,7 @@ const Footer = () => {
                         </div>
                     ))}
                 </div>
+                {/* mobile */}
                 <div className='w-full md:hidden flex items-start justify-between'>
                     <div className='flex flex-col items-start justify-start'>
                         <GradientText className='text-[#D9D9D9] font-neuehaas text-[1.2rem]'>

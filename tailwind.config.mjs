@@ -37,6 +37,7 @@ export default {
         "hide-search": "hide-search 400ms",
         "slide-left" : "slide-left 400ms ease",
         "slide-in": "slide-in 800ms ease",
+        marquee: "marquee linear infinite",
       },
       keyframes: {
         "show-search": {
@@ -45,6 +46,10 @@ export default {
           }, to: {
             width: "20rem"
           }
+        },
+        marquee: {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(-100%)" },
         },
         "slide-left": {
           from: {

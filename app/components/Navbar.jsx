@@ -53,7 +53,7 @@ const Navbar = () => {
           stiffness: 100, // Adjust the stiffness of the spring (higher is snappier)
           damping: 10, // Controls how the spring settles (lower is more oscillatory)
       }}
-      className="w-[calc(100vw)] md:w-[calc(100vw-4rem)] h-24 md:h-[4.5rem] z-50 fixed top-0 pt-6 md:pt-0 md:top-8 left-0 md:left-[2rem] right-8 backdrop-blur-lg md:bg-[#1D1E21] md:rounded-[1.3rem] py-[0.75rem] px-6 md:px-[1.25rem] flex items-center justify-between md:gap-20"
+      className="w-[calc(100vw)] md:w-[calc(100vw-3.5rem)] h-24 md:h-[6.5rem] z-50 fixed top-0 pt-6 md:pt-8 left-0 md:left-[1.75rem] right-8 backdrop-blur-lg md:b-[#1D1E21] md:rounded-b-[1.3rem] py-[0.75rem] px-6 md:px-[1.25rem] flex items-center justify-between md:gap-20"
     >
       <Link href={"/"} className="h-full w-fit py-2 md:py-0">
         <Image src={guardeerLogo} className="h-full w-fit hiden md:blok" alt="Guardeer" />
@@ -102,9 +102,9 @@ const Navbar = () => {
           </div>
         </button>
         <button 
-            className="overflow-hidden group h-12 w-40 font-ttc text-white hidden md:flex items-center justify-center text-lg font-semibold rounded-full relative"
+            className="overflow-hidden group h-12 w-40 font-ttc text-black hidden md:flex items-center justify-center text-lg font-semibold rounded-full relative"
         >
-            <div className="w-full aspect-square absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-yellow-blue-gradient origin-center group-hover:rotate-180  transition-all duration-700 ease-in-out"></div>
+            <div className="w-full aspect-square absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-yellow-blue-gradient origin-center group-hover:rotate-180 transition-all duration-700 ease-in-out"></div>
             <p className="relative z-10">
                 Signup
             </p>

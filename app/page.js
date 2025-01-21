@@ -38,7 +38,7 @@ export default function Home() {
 
       <FinancialMilestoneCarousel />
       <FaqSection />
-      <div className="w-full px-[1.25rem] md:px-[5.5rem] mt-14 md:mt-60">
+      <div className="w-full px-[1.25rem] md:px-[5.5rem] mt-14 md:mt-20">
         <DiscordSection />
         <Footer />
       </div>

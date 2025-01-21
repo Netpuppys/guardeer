@@ -25,7 +25,7 @@ const cards = [
   {
     title: (
       <>
-        Up to 90% <span className="text-[#E5CD7C]">Profit Split</span>
+        Up to 90% <span className="text-[#E5CD7C] font-medium ">Profit Split</span>
       </>
     ),
     icon: profitSplit2,
@@ -39,7 +39,7 @@ const cards = [
   {
     title: (
       <>
-        Fast <span className="text-[#04C5D2]">Bi-Weekly</span> Payouts
+        Fast <span className="text-[#04C5D2] font-medium">Bi-Weekly</span> Payouts
       </>
     ),
     icon: biWeekly,
@@ -53,7 +53,7 @@ const cards = [
   {
     title: (
       <>
-        Realistic Profit <span className="text-[#e5cd7c]">Objectives</span>
+        Realistic Profit <span className="text-[#e5cd7c] font-medium">Objectives</span>
       </>
     ),
     icon: objectives,
@@ -67,7 +67,7 @@ const cards = [
   {
     title: (
       <>
-        Streamlined <span className="text-[#04C5D2]">Scaling</span> Plan
+        Streamlined <span className="text-[#04C5D2] font-medium">Scaling</span> Plan
       </>
     ),
     icon: scaling,
@@ -141,12 +141,12 @@ const TopBanner = () => {
         />
 
         <div className="relative z-10 flex flex-col items-end justify-center">
-          <h3 className="text-[clamp(1.5rem,9vw,3.5rem)] md:text-[clamp(3.5rem,4.3vw,5rem)] font-bold md:leading-[5.2rem] mb-4 text-center md:text-right md:text-nowrap">
+          <h3 className="text-[clamp(10px,8.5vw,50px)] md:text-[clamp(10px,3.9vw,100px)] text-left md:text-right font-bold font-neuehaas md:leading-[4.5vw]">
             <GradientText>Why settle for promises</GradientText>
             <br />
             when you can have real capital?
           </h3>
-          <p className="text-[#8F8F8F] text-[clamp(1.1rem,5.4vw,2.2rem)] md:text-[clamp(1.1rem,1.4vw,1.8rem)] px-5 md:px-0 md:max-w-[60%] text-justify md:text-right">
+          <p className="text-[#8F8F8F] pt-4 text-[clamp(10px,5vw,50px)] md:text-[clamp(10px,1.7vw,100px)] font-neuehaas text-left md:text-right md:max-w-[60%]">
             Funding Traders With Real Capital Isn't Just A Catchy Pitch - It's
             The Foundation Of A Partnership Built On Trust And Shared Success.
           </p>
@@ -167,23 +167,23 @@ const TopBanner = () => {
 
           {/* desktop */}
           <div className="w-full hidden md:flex flex-col items-start md:items-end gap-6 text-sm md:text-base relative z-10">
-            <div className="flex flex-row-reverse md:flex-row items-center gap-2 md:gap-10">
-              <p className="font-ttc text-[1rem] md:text-[1.7rem] tracking-[0.03444rem] text-left md:text-right text-white text-nowrap">
+            <div className="flex flex-row-reverse md:flex-row items-center gap-2 md:gap-8">
+              <p className="font-ttc text-white text-[clamp(10px,4.5vw,50px)] md:text-[clamp(10px,1.3vw,100px)] tracking-[0.03156rem]">
                 Instant Payouts At Your Convenience
               </p>
-              <Image src={instantPayouts} className=" h-7 object-contain md:h-10 w-10" alt="" />
+              <Image src={instantPayouts} className="w-6 h-6 md:w-8 md:h-8" alt="" />
             </div>
-            <div className="flex flex-row-reverse md:flex-row items-center gap-2 md:gap-10">
-              <p className="font-ttc text-[1rem] md:text-[1.7rem] tracking-[0.03444rem] text-left md:text-right text-white text-nowrap ">
+            <div className="flex flex-row-reverse md:flex-row items-center gap-2 md:gap-8">
+              <p className="font-ttc text-white text-[clamp(10px,4.5vw,50px)] md:text-[clamp(10px,1.3vw,100px)] tracking-[0.03156rem] ">
                 Payouts You Can Always Count On
               </p>
-              <Image src={countPayouts} className="h-10 w-10" alt="" />
+              <Image src={countPayouts} className="w-6 h-6 md:w-8 md:h-8" alt="" />
             </div>
-            <div className="flex flex-row-reverse md:flex-row items-center gap-2 md:gap-10">
-              <p className="font-ttc text-[1rem] md:text-[1.7rem] tracking-[0.03444rem] text-left md:text-right text-white text-nowrap ">
+            <div className="flex flex-row-reverse md:flex-row items-center gap-2 md:gap-8">
+              <p className="font-ttc text-white text-[clamp(10px,4.5vw,50px)] md:text-[clamp(10px,1.3vw,100px)] tracking-[0.03156rem] ">
                 Protected From Unpredictable Market Swings
               </p>
-              <Image src={marketSwings} className="h-10 w-10" alt="" />
+              <Image src={marketSwings} className="w-6 h-6 md:w-8 md:h-8" alt="" />
             </div>
           </div>
 
@@ -234,36 +234,37 @@ const AnimatedCards = () => {
         {cards.map((item, id) => (
           <div
             key={id}
-            style={{ border: `1px solid ${item.color}` }}
-            className={`w-full md:w-[calc(25%-3rem)] h-[26rem] flex flex-col p-6 items-center justify-start gap-4 bg-[#313131] bg-opacity-70 rounded-2xl backdrop-blur-lg shadow-[0px_1.491px_10.597px_0px_rgba(255,252,0,0.80)_inset] even:shadow-[0px_1.491px_10.597px_0px_#0EC0C8_inset]`}
+            className={`w-full md:w-[calc(25%-3rem)] md:h-[28rem] bg-yellow-blue-gradient p-[1px] rounded-2xl backdrop-blur-lg overflow-hidden`}
           >
-            <Image src={item.icon} className="h-[3.5rem] w-[3.5rem]" alt="" />
-            <p className="text-[clamp(1.1rem,7.4vw,2rem)] md:text-[clamp(1.1rem,1.4vw,1.8rem)] font-medium md:font-normal font-neuehaas text-nowrap">
-              {item.title}
-            </p>
-            <div
-              style={{ background: item.color }}
-              className={`w-full h-[1.5px] min-h-[1.5px] relative`}
-            >
+            <div className="w-full h-full  flex flex-col p-6 items-center justify-start gap-4 bg-black bg-opacity-85 rounded-2xl backdrop-blur-lg ">
+              <Image src={item.icon} className="h-[3.5rem] w-[3.5rem]" alt="" />
+              <p className="text-[clamp(1.5rem,6vw,2.2rem)] md:text-[clamp(1.5rem,1.8vw,2.2rem)] text-nowrap font-neuehaas">
+                {item.title}
+              </p>
               <div
                 style={{ background: item.color }}
-                className="absolute w-3 aspect-square rounded-full top-0 left-0 -translate-y-1/2"
-              ></div>
-              <div
-                style={{ background: item.color }}
-                className="absolute w-3 aspect-square rounded-full top-0 right-0 -translate-y-1/2"
-              ></div>
+                className={`w-full h-[1.5px] min-h-[1.5px] relative`}
+              >
+                <div
+                  style={{ background: item.color }}
+                  className="absolute w-3 aspect-square rounded-full top-0 left-0 -translate-y-1/2"
+                ></div>
+                <div
+                  style={{ background: item.color }}
+                  className="absolute w-3 aspect-square rounded-full top-0 right-0 -translate-y-1/2"
+                ></div>
+              </div>
+              <ul className="list-disc w-full text-left pt-4 px-4 md:px-6">
+                {item.description.map((point, id) => (
+                  <li
+                    key={id}
+                    className="text-[clamp(1rem,4.7vw,1.6rem)] md:text-[clamp(1rem,1.3vw,1.4rem)] text-[#c9c9c9] md:leading-[1.7rem] font-ttc font-normal pb-1 last:pb-0"
+                  >
+                    {point}
+                  </li>
+                ))}
+              </ul>
             </div>
-            <ul className="list-disc w-full text-left pt-4 px-4">
-              {item.description.map((point, id) => (
-                <li
-                  key={id}
-                  className="text-[clamp(0.8rem,4.5vw,1.5rem)] md:text-[clamp(10px,1vw,20px)] text-[#ededed] leading-[1.9rem] font-neuehaas font-normal"
-                >
-                  {point}
-                </li>
-              ))}
-            </ul>
           </div>
         ))}
     </motion.div>
@@ -286,7 +287,7 @@ const AnimatedImage = () => {
           stiffness: 100, // Adjust the stiffness of the spring (higher is snappier)
           damping: 10, // Controls how the spring settles (lower is more oscillatory)
       }}
-      className="w-full md:px-40 h-fit py-28 md:py-[12rem] flex items-center justify-center overflow-hidden"
+      className="w-full md:px-40 h-fit py-28 md:py-[5rem] flex items-center justify-center overflow-hidden"
     >
         <Image src={placeholder} className="md:w-full w-fit object-cover h-[18rem] min-h-[18rem] md:h-fit" alt="" />
     </motion.div>
@@ -350,30 +351,32 @@ const AnimatedBottomCards = () => {
       {cardsArray.map((item, index) => (
       <div 
           key={index}
-          className="w-full md:w-[calc(33%-4rem)] shadow-[0px_1.491px_10.597px_0px_rgba(255,252,0,0.80)_inset] even:shadow-[0px_1.491px_10.597px_0px_#0EC0C8_inset] h-fit md:h-[22rem] flex flex-col p-8 items-center justify-start gap-4 bg-[#313131] bg-opacity-70 rounded-2xl backdrop-blur-lg"
+          className="w-full md:w-[calc(33%-4rem)] h-[20rem] flex flex-col items-center justify-start gap-2 bg-yellow-blue-gradient p-[1px] rounded-2xl backdrop-blur-lg "
       >
+        <div className="w-full h-full flex flex-col p-6 items-center justify-start gap-2 bg-black bg-opacity-85 rounded-2xl backdrop-blur-lg">
           <Image
               src={item.icon}
               className="h-[3rem] object-contain md:h-[4.5rem] w-[4.5rem]"
               alt=""
           />
-          <p className="text-[clamp(1.3rem,1.9vw,2.3rem)] font-neuehaas text-nowrap">
+          <p className="text-[clamp(1.5rem,6vw,2.2rem)] md:text-[clamp(1.5rem,1.8vw,2.2rem)] text-nowrap font-neuehaas">
             {item.title}
           </p>
           <div style={{ background: item.color }} className={`w-full h-[1.5px] relative`}>
               <div style={{ background: item.color }} className="absolute w-3 aspect-square rounded-full top-0 left-0 -translate-y-1/2"></div>
               <div style={{ background: item.color }} className="absolute w-3 aspect-square rounded-full top-0 right-0 -translate-y-1/2"></div>
           </div>
-          <ul className="list-disc w-full text-left pt-4 px-6">
+          <ul className="list-disc w-full text-left pt-4 px-4 md:px-6">
               {item.points.map((point, id) => (
                   <li
                       key={id}
-                      className="text-[clamp(1.1rem,1.3vw,1.7rem)] text-[#ededed] leading-[1.9rem] font-neuehaas font-normal"
+                      className="text-[clamp(1rem,4.7vw,1.6rem)] md:text-[clamp(1rem,1.3vw,1.4rem)] text-[#c9c9c9] md:leading-[1.7rem] font-ttc font-normal pb-1 last:pb-0"
                   >
                       {point}
                   </li>
               ))}
           </ul>
+        </div>
       </div>))}
     </motion.div>
   )

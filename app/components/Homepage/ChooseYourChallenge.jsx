@@ -6,8 +6,11 @@ import bigLogo from "../../../public/logos/bigLogo.png";
 import Image from "next/image";
 import { GoArrowUpRight, GoChevronLeft, GoChevronRight } from "react-icons/go";
 import knight from "../../../public/icons/knight.png";
-import royal from "../../../public/icons/royalGradient.png";
+import knightSelected from "../../../public/icons/knightSelected.png";
+import royal from "../../../public/icons/royal.png";
+import royalSelected from "../../../public/icons/royalGradient.png";
 import emperor from "../../../public/icons/emperor.png";
+import emperorSelected from "../../../public/icons/emperorSelected.png";
 import knightBg from "../../../public/background/knightBg.png"
 import royalBg from "../../../public/background/royalBg.png"
 import emperorBg from "../../../public/background/emperorBg.png"
@@ -36,18 +39,24 @@ const challenges = [
 const nameChallenges = [
   {
     icon: knight,
+    selectedIcon: knightSelected,
     background: knightBg,
     name: "Knight Challenge",
+    selectedName: <GradientText>Knight Challenge</GradientText>
   },
   {
     icon: royal,
+    selectedIcon: royalSelected,
     background: royalBg,
-    name: <GradientText>Royal Challenge</GradientText>,
+    name: "Royal Challenge",
+    selectedName: <GradientText>Royal Challenge</GradientText>
   },
   {
     icon: emperor,
+    selectedIcon: emperorSelected,
     background: emperorBg,
     name: "Emperor Challenge",
+    selectedName: <GradientText>Emperor Challenge</GradientText>
   },
 ];
 
@@ -260,14 +269,14 @@ const MobileTable = () => {
                   <div className="w-full flex items-center justify-evenly h-14 relative">
                     <button
                       onClick={() => setActiveTableView(0)}
-                      className={`text-[#ABABAB] text-lg font-helvetica font-medium relative`}
+                      className={`text-[#ABABAB] text-lg font-neuehaas font-medium relative`}
                     >
                       {activeTableView===0? <GradientText>Phase 1</GradientText> : "Phase 1"}
                       {activeTableView===0 && <div className="w-full h-1 rounded-full absolute left-0 bottom-0 bg-yellow-blue-gradient"></div> }
                     </button>
                     <button
                       onClick={() => setActiveTableView(1)}
-                      className={`text-[#ABABAB] text-lg font-helvetica font-medium relative`}
+                      className={`text-[#ABABAB] text-lg font-neuehaas font-medium relative`}
                     >
                       {activeTableView===1? <GradientText>Funded</GradientText> : "Funded"}
                       {activeTableView===1 && <div className="w-full h-1 rounded-full absolute left-0 bottom-0 bg-yellow-blue-gradient"></div> }
@@ -296,14 +305,14 @@ const MobileTable = () => {
                           className={`text-gray-300 h-[4.5rem] flex items-center justify-between gap-2 w-full relative`}
                         >
                           <div className="w-2/3 text-left flex items-center justify-start gap-4">
-                              <button className="w-5 aspect-square flex items-center justify-center rounded-full text-[#383838] text-xs font-helvetica bg-[#0EC0C8]">
+                              <button className="w-5 aspect-square flex items-center justify-center rounded-full text-[#383838] text-xs font-neuehaas bg-[#0EC0C8]">
                                 i
                               </button>
-                              <p className="text-[#979797] text-sm font-helvetica font-medium text-nowrap">
+                              <p className="text-[#979797] text-sm font-neuehaas font-medium text-nowrap">
                                 {row.feature}
                               </p>
                           </div>
-                          <div className="text-right w-1/3 text-[#D4D4D4] text-sm font-medium font-helvetica">
+                          <div className="text-right w-1/3 text-[#D4D4D4] text-sm font-medium font-neuehaas">
                             {activeTableView===0? row.phase1 : row.funded}
                           </div>
                           {tableData.length>index+1 && 
@@ -326,7 +335,8 @@ const MobileTable = () => {
 }
 
 const DesktopTable = () => {
-  const [selectedChallenge, setSelectedChallenge] = useState(2);
+  const [ selectedPrice, setSelectedPrice ] = useState(2);
+  const [ selectedChallenge, setSelectedChallenge ] = useState(1)
 
   const { ref, inView } = useInView({
     threshold: 0.2,
@@ -351,6 +361,7 @@ const DesktopTable = () => {
             {nameChallenges.map((item, index) => (
               <div
                 key={index}
+                onClick={() => setSelectedChallenge(index)}
                 className="h-full bg-[#111111] w-80 border border-[#0EC0C8] even:border-[#FBF93A] rounded-2xl flex flex-col items-center justify-center gap-2 relative overflow-hidden"
               >
                 <Image
@@ -359,12 +370,12 @@ const DesktopTable = () => {
                   alt=""
                 />
                 <Image
-                  src={item.icon}
-                  className="h-[3.6rem] z-10 relative w-[3.6rem]"
+                  src={index===selectedChallenge? item.selectedIcon : item.icon}
+                  className="h-[3rem] z-10 relative w-[3rem] object-contain"
                   alt=""
                 />
-                <p className="font-neuehaas z-10 relative text-white text-[1.6rem]">
-                  {item.name}
+                <p className="font-neuehaas z-10 relative text-white text-[clamp(1.2rem,1.3vw,1.7rem)] leading-none">
+                  {index===selectedChallenge? item.selectedName : item.name}
                 </p>
               </div>
             ))}
@@ -375,14 +386,14 @@ const DesktopTable = () => {
               {challenges.map((item, id) => (
                 <button
                   key={id}
-                  className={`w-[12.5rem] h-[3.7rem] rounded-full border border-[#E5CD7C] font-neuehaas font-semibold text-[1.4rem] flex items-center justify-center transition-all
+                  className={`w-[12.5rem] h-[3.5rem] rounded-full border border-[#E5CD7C] font-neuehaas font-medium text-[clamp(1.2rem,1.35vw,1.6rem)] leading-none flex items-center justify-center transition-all
                       ${
-                        selectedChallenge === id
+                        selectedPrice === id
                           ? "bg-[#E5CD7C] text-[#222222]"
                           : "bg-[#161616] text-[#E5CD7C]"
                       }
                   `}
-                  onClick={() => setSelectedChallenge(id)}
+                  onClick={() => setSelectedPrice(id)}
                 >
                   $ {item.price}
                 </button>
@@ -400,10 +411,10 @@ const DesktopTable = () => {
                         alt="guardeer"
                       />
                     </th>
-                    <th className="text-center w-1/3 text-[#0EC0C8] text-[2rem] font-medium font-helvetica">
+                    <th className="text-center w-1/3 text-[#0EC0C8] text-[1.6rem] font-medium font-neuehaas">
                       Phase 1
                     </th>
-                    <th className="text-center w-1/3 text-[#0EC0C8] text-[2rem] font-medium font-helvetica bg-[#111111]">
+                    <th className="text-center w-1/3 text-[#0EC0C8] text-[1.6rem] font-medium font-neuehaas bg-[#111111]">
                       Funded
                     </th>
                   </tr>
@@ -430,18 +441,18 @@ const DesktopTable = () => {
                       >
                         <td className="h-[5.6rem] text-center w-1/3 bg-[#111111]">
                           <div className="w-full h-full flex items-center justify-between pl-[3.8rem] pr-[1.7rem]">
-                            <p className="text-[#D4D4D4] text-[1.3rem] font-helvetica font-medium ">
+                            <p className="text-[#D4D4D4] text-[1.2rem] font-ttc font-medium ">
                               {row.feature}
                             </p>
-                            <button className="w-7 aspect-square flex items-center justify-center rounded-full text-[#383838] text-lg font-helvetica bg-[#0EC0C8]">
+                            <button className="w-7 aspect-square flex items-center justify-center rounded-full text-[#383838] text-lg font-neuehaas bg-[#0EC0C8]">
                               i
                             </button>
                           </div>
                         </td>
-                        <td className="h-[5.6rem] text-center w-1/3 text-[#D4D4D4] text-[1.2rem] font-medium font-helvetica">
+                        <td className="h-[5.6rem] text-center w-1/3 text-[#D4D4D4] text-[1.2rem] font-medium font-ttc">
                           {row.phase1}
                         </td>
-                        <td className="h-[5.6rem] text-center w-1/3 bg-[#111111] text-[#D4D4D4] text-[1.2rem] font-medium font-helvetica">
+                        <td className="h-[5.6rem] text-center w-1/3 bg-[#111111] text-[#D4D4D4] text-[1.2rem] font-medium font-ttc">
                           {row.funded}
                         </td>
                       </motion.tr>
@@ -465,7 +476,7 @@ const DesktopTable = () => {
 const ChooseYourChallenge = () => {
   
   return (
-    <div className="w-full md:px-28 pt-20 md:pt-[9rem]">
+    <div className="w-full md:px-28 pt-20 ">
       <Heading />
       <SubHeading />
       <DesktopTable />

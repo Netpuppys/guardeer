@@ -57,7 +57,7 @@ const FaqSection = () => {
   });
 
   return (
-    <div ref={ref} className="w-full flex flex-col items-center justify-start mt-14 md:mt-28 px-7">
+    <div ref={ref} className="w-full flex flex-col items-center justify-start mt-14 md:mt-20 px-7">
       <motion.p 
         initial={{ transform: "translateY(60px)", opacity: 0 }}
         animate={inView ? { transform: "translateY(0px)", opacity: 1 } : {}}

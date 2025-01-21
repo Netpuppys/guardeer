@@ -75,7 +75,7 @@ const FinancialMilestoneCarousel = () => {
   }, []);
 
   return (
-    <div className="w-full mt-10 md:mt-36">
+    <div className="w-full mt-10 md:mt-20">
       <Heading />
       
       <div className="hidden md:flex items-center justify-end gap-8 px-8">
