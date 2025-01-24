@@ -29,7 +29,7 @@ const navItems = [
   },
   {
     name: "Contact us",
-    linkTo: "/",
+    linkTo: "/contact-us",
   },
 ];
 

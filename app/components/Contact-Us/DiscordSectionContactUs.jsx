@@ -1,4 +1,3 @@
-import React from 'react'
 import GradientText from '../ui/GradientText'
 import Image from 'next/image'
 import discordMiniLogo from "../../../public/logos/discordMiniLogo.png"
@@ -6,7 +5,7 @@ import discordLogo from "../../../public/logos/discordLogo.png"
 import { motion } from "motion/react"
 import { useInView } from "react-intersection-observer";
 
-const DiscordSection = () => {
+const DiscordSectionContactUs = () => {
     const { ref, inView } = useInView({
         threshold: 0.2,
         triggerOnce: false, // Animation triggers only once
@@ -83,4 +82,4 @@ const DiscordSection = () => {
   )
 }
 
-export default DiscordSection
+export default DiscordSectionContactUs
