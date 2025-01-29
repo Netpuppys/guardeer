@@ -12,7 +12,7 @@ const page = () => {
     <div className='max-w-full w-full pt-[8.5rem] h-full'>
         <Navbar />
 
-        <div className='max-w-full w-full px-5 md:px-16'>
+        <div className='max-w-full w-full overflow-x-hidden px-5 md:px-16'>
           <Banner />
           <AboutCards />
           <WrittenContent />
