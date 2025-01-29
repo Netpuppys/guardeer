@@ -160,7 +160,7 @@ const AnimatedCards = () => {
     });
 
     return (
-        <div ref={ref} className="w-full flex items-center justify-between gap-6 mt-20">
+        <div ref={ref} className="w-full hidden md:flex items-center justify-between gap-6 mt-20">
             {/* card 1 */}
             <motion.div 
                 initial={{ transform: "translateY(60px)", opacity: 0 }}

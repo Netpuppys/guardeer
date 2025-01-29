@@ -9,10 +9,10 @@ import BottomCard from '../components/AboutUs/BottomCard'
 
 const page = () => {
   return (
-    <div className='max-w-full w-full pt-[8.5rem] h-full'>
+    <div className='max-w-[100vw] w-screen pt-[8.5rem] h-full'>
         <Navbar />
 
-        <div className='max-w-full w-full overflow-x-hidden px-5 md:px-16'>
+        <div className='max-w-full box-border w-full px-5 md:px-16'>
           <Banner />
           <AboutCards />
           <WrittenContent />
