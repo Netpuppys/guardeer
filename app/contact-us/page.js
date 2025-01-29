@@ -6,6 +6,8 @@ import smallLogoGradient from "../../public/logos/smallLogoGradient.png"
 import GradientText from '../components/ui/GradientText'
 import messagesIcon from "../../public/icons/messages.png"
 import Link from 'next/link'
+import DiscordSectionContactUs from '../components/Contact-Us/DiscordSectionContactUs'
+import Footer from '../components/Footer'
 
 const contactCards = [
     {
@@ -102,6 +104,10 @@ const page = () => {
                 ))}
             </div>
 
+            <div className='px-24 mt-16 md:mt-28'>
+                <DiscordSectionContactUs />
+                <Footer />
+            </div>
         </div>
     </div>
   )

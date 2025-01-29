@@ -15,7 +15,7 @@ import CardsSectionsMobile from "./components/Homepage/CardsSectionsMobile";
 
 export default function Home() {
   return (
-    <div className="w-full relative md:pt-[8.5rem] max-w-[100vw] overflow-hidden pb-10 md:pb-6 h-full min-h-[300vh]">
+    <div className="w-full relative md:pt-[8.5rem] max-w-[100vw] overflow-hidden pb-10 md:pb-6 h-full">
       <Navbar />
 
       <div className="w-full px-[1.25rm] md:px-[2rem]">

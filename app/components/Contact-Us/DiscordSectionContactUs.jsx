@@ -1,3 +1,5 @@
+'use client'
+
 import GradientText from '../ui/GradientText'
 import Image from 'next/image'
 import discordMiniLogo from "../../../public/logos/discordMiniLogo.png"

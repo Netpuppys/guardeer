@@ -1,3 +1,5 @@
+'use client'
+
 import React from 'react'
 import GradientText from '../ui/GradientText'
 import Image from 'next/image'

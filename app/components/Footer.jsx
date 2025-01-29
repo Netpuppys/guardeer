@@ -1,3 +1,5 @@
+'use client'
+
 import React from 'react'
 import footerImage from "../../public/delete/footer.png"
 import guardeerGradientLogo from "../../public/logos/guardeerGradientLogo.png"

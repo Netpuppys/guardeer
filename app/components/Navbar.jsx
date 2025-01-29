@@ -6,9 +6,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { IoClose, IoSearchOutline } from "react-icons/io5";
 import { motion } from "motion/react";
-import guardeerMiniLogo from "../../public/logos/guardeerMiniLogo.png";
 import { CgMenuRightAlt } from "react-icons/cg";
-import GradientText from "./ui/GradientText";
 
 const navItems = [
   {
@@ -17,7 +15,7 @@ const navItems = [
   },
   {
     name: "About Us",
-    linkTo: "/",
+    linkTo: "/about-us",
   },
   {
     name: "Challenge",
@@ -25,7 +23,7 @@ const navItems = [
   },
   {
     name: "FAQ's",
-    linkTo: "/",
+    linkTo: "/faq",
   },
   {
     name: "Contact us",
